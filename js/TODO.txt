@@ -1,0 +1,71 @@
+TODO:
+----------------------
+  - For myTracks generated kml, one of the <Placemark> sections includes
+    a <description> with a number summary values. Also there is a
+    document title. Parse and add the information to the web page.
+    Better still, make it an active link and pop-up on the map. Click
+    on the marker and a bubble pops up with the Placemark info.
+    This is problematic for new MyTracks KML files because the KML
+    parser for with the extractTracks setting does not return the
+    Placemarks that do not include <gx:track> entries.
+
+  - put cursor information (elev, dist, etc.) in a floating bubble
+    attached to the point on the map.
+
+  - In the track stats area, make elev min and max links that put a
+    mark on the map for the high and low points. Or maybe put it in as a
+    'Location' link.
+
+  - Get the top-bar navigation links working
+
+  - allow zoom on elevation chart
+
+  - progress bar
+
+  - relocate to dunmire.org
+
+  - links to/from RockingdLabs.dunmire.org
+  
+  - get under revision control
+
+  - Allow multiple tracks
+
+  - extract more data from the KML file
+
+  - make KML handling specific to the newer MyTracks format
+     - add time info:
+     - scale distances to match
+       Multiply each distance by the ratio of the total distance
+       calculated divided by the MyTracks reported distance.
+
+  - Need an index of tracks
+     - drop down?
+     - separate page?
+     - one of the panels?
+     - a thumbnail graphic of the track would be useful
+
+  - Need an About page
+
+
+
+DONE
+----------------------
+  - generalize home location and remove marker for privacy reasons.
+
+  - Parse window.location.href to get the track name to load. This makes
+    it possible to have one .html file and many track(.kml,.json) files
+
+  - Parse window.locaton.href to decode Permalink arguments.
+
+  - Add license (CC-BY-..) in footer
+
+  - Added attributions in footer
+
+  - add other tile sources, particularly arial tile from Mapquest
+
+  - problem with new version of MyTracks KML file- it uses gx:coord and
+    the track therefore does not show up. FIXED: New option to
+    addTrackLayer: ttype:
+       ttype = linestring : track is in a <LineString> stanza
+       ttype = gx:track   : track is in a <gx:Track> stanza
+

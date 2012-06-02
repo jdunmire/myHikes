@@ -1,0 +1,176 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title></title>
+  <meta name="Maps of my hikes" content="">
+  <meta name="J.Dunmire" content="">
+
+  <meta name="viewport" content="width=device-width">
+
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <style>
+    body {
+      padding-top: 60px;
+      padding-bottom: 40px;
+    }
+  </style>
+  <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <script src="js/libs/modernizr-2.5.3-respond-1.1.0.min.js"></script>
+  <link rel="shortcut icon" href="favicon.ico">
+</head>
+<body>
+  <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+        <a class="brand" href="/">MyMaps</a>
+        <div class="nav-collapse">
+          <ul class="nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- map row -->
+    <div class="row">
+      <div class="span9">
+        <div class="mediummap" id="map">
+        </div>
+      </div>
+      <div class="span3">
+        <h3>Trail Info</h3>
+        <div class="progress progress-striped active">
+          <div class="bar" style="width: 50%;"></div>
+        </div>
+        <table class="statTable" id="statTable" style="display: none;">
+          <tr>
+            <td class="statLabel">Distance</td>
+            <td class="statSep">:</td>
+            <td class="stat" id="distTotal"></td>
+            <td class="enUnits">mi</td>
+            <td class="stat_m" id="distTotal_m"></td>
+          </tr>
+          <tr>
+            <td class="statLabel">Elev Max</td>
+            <td class="statSep">:</td>
+            <td class="stat" id="elevMax"></td>
+            <td class="enUnits">ft</td>
+            <td class="stat_m" id="elevMax_m"></td>
+          </tr>
+          <tr>
+            <td class="statLabel">Elev Min</td>
+            <td class="statSep">:</td>
+            <td class="stat" id="elevMin"></td>
+            <td class="enUnits">ft</td>
+            <td class="stat_m" id="elevMin_m"></td>
+          </tr>
+          <tr>
+            <td class="statLabel">Elev Gain</td>
+            <td class="statSep">:</td>
+            <td class="stat" id="elevGain"></td>
+            <td class="enUnits">ft</td>
+            <td class="stat_m" id="elevGain_m"></td>
+          </tr>
+        </table>
+      </div>
+    </div> <!-- map row -->
+
+    <!-- Elev Plot row -->
+    <div class="row">
+      <div class="span9">
+        <div class="mediumplot" id="elevPlot"></div>
+      </div>
+      <div class="span3" id="locationLinks">
+        <h3>Locations</h3>
+      </div>
+    </div> <!-- Elev Plot row -->
+
+    <div class="row">
+      <div class="span9">
+        Created by <a href='http://www.google.com/mobile/mytracks'>My Tracks</a> on Android.<p>Total distance: 9.75 km (6.1 mi)<br>Total time: 2:09:32<br>Moving time: 1:39:36<br>Average speed: 4.52 km/h (2.8 mi/h)<br>Average moving speed: 5.87 km/h (3.7 mi/h)<br>Max speed: 20.74 km/h (12.9 mi/h)<br>Average pace: 13.28 min/km (21.4 min/mi)<br>Average moving pace: 10.21 min/km (16.4 min/mi)<br>Min pace: 2.89 min/km (4.7 min/mi)<br>Max elevation: 27 m (88 ft)<br>Min elevation: -29 m (-97 ft)<br>Elevation gain: 515 m (1688 ft)<br>Max grade: 0 %<br>Min grade: 0 %<br>Recorded: 5/20/2012 7:52 AM<br>Activity type: walking<br>
+      </div>
+    </div>
+    <hr>
+
+    <footer>
+    <p class="license">
+    <a rel="license"
+      href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img
+      alt="Creative Commons License" style="border-width:0"
+      src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png"
+      /></a><br />This work by <a
+      xmlns:cc="http://creativecommons.org/ns#"
+      href="http://www.dunmire.org" property="cc:attributionName"
+      rel="cc:attributionURL">Jerry Dunmire</a> is licensed under a
+    <a rel="license"
+      href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative
+      Commons Attribution-NonCommercial-ShareAlike 3.0 Unported
+      License
+    </a>.
+    </p>
+    <p class="license">
+    Map tiles copyrighted by, and used under license from, their
+    providers:<br>
+    <a href="http://www.openstreetmap.org">Openstreetmap
+      Contributors</a>,
+    <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA 2.0</a> <br>
+    <a href="http://www.thunderforest.com">Thunderforest</a>,
+    <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA 2.0</a> <br>
+    <a href="http://www.mapquest.com/">Mapquest</a><img src="http://developer.mapquest.com/content/osm/mq_logo.png">,
+    <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA 2.0</a> <br>
+    Portions Courtesy NASA/JPL-Caltech and U.S. Depart. of Agriculture,
+    Farm Service Agency
+    </p>
+    </footer>
+
+    </div> <!-- /container -->
+
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
+      </script>
+      <script>window.jQuery ||
+        document.write('<script src="js/libs/jquery-1.7.2.min.js"><\/script>')
+      </script>
+
+      <script src="js/libs/bootstrap/bootstrap.min.js"></script>
+
+      <script src="js/script.js"></script>
+      <script>
+        var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+        (function(d,t){var
+          g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+          g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+          s.parentNode.insertBefore(g,s)}(document,'script'));
+      </script>
+      <!-- scripts to build topo map with KML track and a plot
+      of the elevations.  -->
+      <script src="js/libs/flot/jquery.flot.js"></script>
+      <script src="js/libs/flot/jquery.flot.crosshair.js"></script>
+      <script src="js/flotResize.js"></script>
+      <script src="js/libs/OL/OpenLayers.js"></script>
+      <script src="js/tfmaps.js"></script>
+      <script src="js/trackLayer.js"></script>
+      <script src="js/elevChart2.js"></script>
+      <script src="js/setMark.js"></script>
+
+
+</body>
+</html>

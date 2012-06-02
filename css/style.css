@@ -1,0 +1,41 @@
+/* ===== Primary Styles ========================================================
+   Author: J. Dunmire
+   ========================================================================== */
+.mediummap {
+  height: 400px;
+}
+
+.mediumplot {
+  height: 200px;
+}
+
+.row {
+  padding: 10px 0;
+}
+
+.statTable {
+  margin-left: 20px;
+}
+
+.statLabel {
+  text-align: right
+}
+
+.statSep {
+  padding: 0 5px;
+}
+
+.stat {
+  text-align: right
+}
+
+.stat_m {
+  padding: 0 5px;
+  text-align: left
+}
+
+P.license {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
