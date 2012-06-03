@@ -2,7 +2,7 @@
    Author: J. Dunmire
    ========================================================================== */
 .mediummap {
-  height: 400px;
+  height: 500px;
 }
 
 .mediumplot {
@@ -11,6 +11,10 @@
 
 .row {
   padding: 10px 0;
+}
+
+.myTracksDesc {
+  margin-left: 20px;
 }
 
 .statTable {

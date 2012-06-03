@@ -11,6 +11,8 @@
  * over a data point on the chart, a position marker is updated on an
  * associated map.
  *
+ * Writes a summary of the distance and elevation into the Trail Info
+ * (statTable) table.
  */
 
 // Use this function
@@ -72,7 +74,7 @@ function addElevChart(chartID, dataurl, map) {
                 $('#elevGain_m').append("(" + (elevStats.gain * 0.3048).toFixed(0) + " m)")
                 $('#distTotal_m').append("(" + ((series.data[series.data.length - 2][0]) * 1.609344).toFixed(1) + " km)")
 
-                $('.progress').hide();
+                $('.elev_progress').hide();
                 $('#statTable').show();
             }
 
@@ -80,8 +82,11 @@ function addElevChart(chartID, dataurl, map) {
                 url: dataurl,
                 method: 'GET',
                 dataType: 'json',
-                success: onDataReceived
-                /*error:  */
+                timeout: 1000,
+                success: onDataReceived,
+                error: function() { $('#statTable').text('Not available');
+                $('#statTable').show();
+                $('.elev_progress').hide()}
             });
         }
 

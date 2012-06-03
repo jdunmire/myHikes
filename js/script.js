@@ -7,11 +7,13 @@ var urlPosition = false;
 jQuery(document).ready(function() {
     $("#statTable").hide();
     myMap = initMapLayers();
+    /*
     home = new setMark(myMap, {zoom: 11, desc: "Home<br/>",
         iconMapURL: "",
         icon_x: 0,
         icon_y: 0,
         descIcon: "<i class='icon-home'></i>"});
+    */
 
     function gup( name )
     {
@@ -47,5 +49,18 @@ jQuery(document).ready(function() {
     myTour = addTrackLayer(myMap, track + ".kml", ttype);
     myChart = new addElevChart("#elevPlot",
       track + ".json", myMap); //"distElev.json");
-    
+    /*
+    $.get(track + '.txt',
+          function(data) {
+            $('#trailDesc').append(data);
+            }
+         );
+         */
+    $('#myTracksDesc').load(track + '.txt',
+        function(response, loadStatus, xhr) { 
+           if (loadStatus == "error") {
+              $('#myTracksDesc').append('Not available');
+              }
+           $('.desc_progress').hide();
+                });
 });

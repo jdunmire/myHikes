@@ -83,15 +83,15 @@ function addTrackLayer(map, kmlsource, ttype) {
     map.addLayer(track);
 
     label = kmlsource.substr(0,(kmlsource + '.').indexOf('.'));
+    /*
     new setMark(map, {
       iconMapURL: "",
             desc: label + "<br/>",
         descIcon: "<i class='icon-picture'></i>",
               id: "id='" + label + "'"});
-    /*
-     * Hide the location link until the track is loaded.
-     */
+    // Hide the location link until the track is loaded.
     $("#" + label).hide()
+    */
 
     function zoomTrackExtent(){
         var extent = track.getDataExtent();
@@ -101,7 +101,7 @@ function addTrackLayer(map, kmlsource, ttype) {
         } else {
           urlPosition = false;
         }
-        $("#" + label).show()
+        //$("#" + label).show()
         return;
     }
 
