@@ -1,14 +1,5 @@
 TODO:
 ----------------------
-  - For myTracks generated kml, one of the <Placemark> sections includes
-    a <description> with a number summary values. Also there is a
-    document title. Parse and add the information to the web page.
-    Better still, make it an active link and pop-up on the map. Click
-    on the marker and a bubble pops up with the Placemark info.
-    This is problematic for new MyTracks KML files because the KML
-    parser for with the extractTracks setting does not return the
-    Placemarks that do not include <gx:track> entries.
-
   - put cursor information (elev, dist, etc.) in a floating bubble
     attached to the point on the map.
 
@@ -19,8 +10,6 @@ TODO:
   - Get the top-bar navigation links working
 
   - allow zoom on elevation chart
-
-  - progress bar
 
   - relocate to dunmire.org
 
@@ -34,7 +23,7 @@ TODO:
 
   - make KML handling specific to the newer MyTracks format
      - add time info:
-     - scale distances to match
+     - scale distances to match - DONE by python preprocessing
        Multiply each distance by the ratio of the total distance
        calculated divided by the MyTracks reported distance.
 
@@ -46,7 +35,7 @@ TODO:
 
   - Need an About page
 
-
+  - Links to hike planning/trail sites
 
 DONE
 ----------------------
@@ -68,4 +57,16 @@ DONE
     addTrackLayer: ttype:
        ttype = linestring : track is in a <LineString> stanza
        ttype = gx:track   : track is in a <gx:Track> stanza
+
+  - For myTracks generated kml, one of the <Placemark> sections includes
+    a <description> with a number summary values. Also there is a
+    document title. Parse and add the information to the web page.
+    Better still, make it an active link and pop-up on the map. Click
+    on the marker and a bubble pops up with the Placemark info.
+    This is problematic for new MyTracks KML files because the KML
+    parser for with the extractTracks setting does not return the
+    Placemarks that do not include <gx:track> entries.
+    DONE- used python to extract the description into a .txt file.
+
+  - progress bar -DONE
 

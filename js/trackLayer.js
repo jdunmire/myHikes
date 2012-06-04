@@ -27,17 +27,7 @@ function addTrackLayer(map, kmlsource, ttype) {
                   //extractTracks: true,  // for gx:track, but ugly
                   maxDepth: 2
               })
-          }),
-                eventListeners: {
-                    "beforefeatureadded": function(e) {
-                        // group the tracks by fid and create one track for
-                        // every fid
-                        var feature = e.feature;
-                        var desc;
-                            desc = feature.attributes.description;
-                        return true;
-                    }
-                }
+          })
       });
     } else {
       track = new OpenLayers.Layer.PointTrack(kmlsource, {
@@ -64,9 +54,6 @@ function addTrackLayer(map, kmlsource, ttype) {
                         for (var i=0, len=e.features.length; i<len; i++) {
                             feature = e.features[i];
                             desc = feature.attributes.description;
-                            if (desc.search("Android") != -1) {
-                              desc2 = desc;
-                            }
                             if (feature.fid !== fid || i === len-1) {
                                 fid = feature.fid;
                                 this.addNodes(points, {silent: true});
