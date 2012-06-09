@@ -1,5 +1,15 @@
 TODO:
 ----------------------
+  - I don't like the way I had to change all of the hero-unit p styles
+    to get a small font for the track details. See line 28 of style.css.
+    I need to look into how to nest the styles.
+    UPDATE- I think it is working now, but only through trial and error.
+            Still need to look closer.
+
+  - I'm not happy with the information in the hero box, the description
+    is too detailed and there is too much info. Really need just a
+    teaser...
+
   - put cursor information (elev, dist, etc.) in a floating bubble
     attached to the point on the map.
 
@@ -15,8 +25,6 @@ TODO:
 
   - links to/from RockingdLabs.dunmire.org
   
-  - get under revision control
-
   - Allow multiple tracks
 
   - extract more data from the KML file
@@ -37,6 +45,35 @@ TODO:
 
   - Links to hike planning/trail sites
 
+  Idea for home page:
+    Big area at top (forgot what facebook framework calls it) would have
+    a small map and the summary from the most recent hike.
+
+    Columns underneath would have a list of other hikes (by date?)
+
+    Get the list of hikes from a php script, perhaps in a JSON format
+
+
+  Still need to solve how to organize several hundred hikes, each
+  requiring 3 files...
+    - by date for sure, need sort and filter option
+    - by location would be great
+    - some tag that would group the tracks
+
+  Idea for list display:
+    Thumbnail of track, name, distance, date
+    Use twitter bootstrap striped and condensed tables with the jQuery
+    table sorter and table pager plugins.
+    js libraries have been downloaded to myHikes/jquery-tablesorter from
+    http://tablesorter.com/docs/
+
+  Trying to install basemap toolkit for matplotlib.
+    See http://www.scipy.org/Cookbook/Matplotlib/Maps
+    There are problems due to versions of libgeos, the libgeos-dev
+    package can not be installed. So while I think this is a possible
+    approach to generating the thumbnails I want, I don't feel like
+    pursing it on this old Ubuntu version (10.10).
+    
 DONE
 ----------------------
   - generalize home location and remove marker for privacy reasons.
@@ -70,3 +107,4 @@ DONE
 
   - progress bar -DONE
 
+  - get under revision control - DONE, git

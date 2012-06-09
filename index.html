@@ -49,127 +49,109 @@
     </div>
   </div>
 
-  <div class="container">
-    <!-- map row -->
-    <div class="row">
-      <div class="span9">
-        <div class="mediummap" id="map">
-        </div>
-      </div>
-      <div class="span3" id="trailDesc">
-        <h3>Trail Description</h3>
-        <div class="progress progress-striped active desc_progress">
-          <div class="bar" style="width: 50%;"></div>
-        </div>
-        <div class="myTracksDesc" id="myTracksDesc">
-        </div>
-      </div>
-    </div> <!-- map row -->
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="span10">
 
-    <!-- Elev Plot row -->
-    <div class="row">
-      <div class="span9">
-        <div class="mediumplot" id="elevPlot"></div>
-      </div>
-      <div class="span3" id="locationLinks">
-        <h3>Trail Summary</h3>
-        <div class="progress progress-striped active elev_progress">
-          <div class="bar" style="width: 50%;"></div>
-        </div>
-        <table class="statTable" id="statTable" style="display: none;">
-          <tr>
-            <td class="statLabel">Distance</td>
-            <td class="statSep">:</td>
-            <td class="stat" id="distTotal"></td>
-            <td class="enUnits">mi</td>
-            <td class="stat_m" id="distTotal_m"></td>
-          </tr>
-          <tr>
-            <td class="statLabel">Elev Max</td>
-            <td class="statSep">:</td>
-            <td class="stat" id="elevMax"></td>
-            <td class="enUnits">ft</td>
-            <td class="stat_m" id="elevMax_m"></td>
-          </tr>
-          <tr>
-            <td class="statLabel">Elev Min</td>
-            <td class="statSep">:</td>
-            <td class="stat" id="elevMin"></td>
-            <td class="enUnits">ft</td>
-            <td class="stat_m" id="elevMin_m"></td>
-          </tr>
-          <tr>
-            <td class="statLabel">Elev Gain</td>
-            <td class="statSep">:</td>
-            <td class="stat" id="elevGain"></td>
-            <td class="enUnits">ft</td>
-            <td class="stat_m" id="elevGain_m"></td>
-          </tr>
-        </table>
-      </div>
-    </div> <!-- Elev Plot row -->
+        <!-- hero-unit -->
+        <div class="hero-unit">
+          <h2>Most Recent Hike</h2>
+          <div class="row-fluid">
+            <div class="span8">
+              <div class="hero-map" id="map"></div>
+              <p><a href="#">More Details</a>
+            </div>
+            <div class="span4">
+              <div class="myTracksDesc" id="myTracksDesc"></div>
+            </div>
+          </div> <!-- row-fluid -->
+        </div> <!-- hero-unit -->
 
-    <hr>
+        <!-- row -->
+        <div class="row-fluid">
+          <div class="span9">
+            <a href="hike.html?track=QuickSilver_20120304">QuickSilver</a>
+            <br>
+            <a href="hike.html?track=Garmisch&ttype='gx:track'">Garmisch</a>
+            <br>
+            <a
+              href="hike.html?track=PaloAltoBaylands_20120520&ttype='gx:track'">PaloAltoBaylands</a>
+          </div> <!-- /span9 -->
+        </div> <!-- /row-fluid -->
 
-    <footer>
-    <p class="license">
-    <a rel="license"
-      href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img
-      alt="Creative Commons License" style="border-width:0"
-      src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png"
-      /></a><br />This work by <a
-      xmlns:cc="http://creativecommons.org/ns#"
-      href="http://www.dunmire.org" property="cc:attributionName"
-      rel="cc:attributionURL">Jerry Dunmire</a> is licensed under a
-    <a rel="license"
-      href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative
-      Commons Attribution-NonCommercial-ShareAlike 3.0 Unported
-      License
-    </a>.
-    </p>
-    <p class="license">
-    Map tiles copyrighted by, and used under license from, their
-    providers:<br>
-    <a href="http://www.openstreetmap.org">Openstreetmap
-      Contributors</a>,
-    <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA 2.0</a> <br>
-    <a href="http://www.thunderforest.com">Thunderforest</a>,
-    <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA 2.0</a> <br>
-    <a href="http://www.mapquest.com/">Mapquest</a><img src="http://developer.mapquest.com/content/osm/mq_logo.png">,
-    <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA 2.0</a> <br>
-    Portions Courtesy NASA/JPL-Caltech and U.S. Depart. of Agriculture,
-    Farm Service Agency
-    </p>
-    </footer>
+        <hr>
 
-    </div> <!-- /container -->
+        <footer>
+          <p class="license">
+          <a rel="license"
+            href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img
+            alt="Creative Commons License" style="border-width:0"
+            src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png"
+            /></a><br />This work by <a
+            xmlns:cc="http://creativecommons.org/ns#"
+            href="http://www.dunmire.org" property="cc:attributionName"
+            rel="cc:attributionURL">Jerry Dunmire</a> is licensed under a
+          <a rel="license"
+            href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative
+            Commons Attribution-NonCommercial-ShareAlike 3.0 Unported
+            License
+          </a>.
+          </p>
+        </footer>
 
-      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
-      </script>
-      <script>window.jQuery ||
-        document.write('<script src="js/libs/jquery-1.7.2.min.js"><\/script>')
-      </script>
+      </div> <!-- /span10 -->
+      <div class="span2">
+        Space for ads
+      </div> <!-- /span2 -->
+    </div> <!-- /row-fluid -->
 
-      <script src="js/libs/bootstrap/bootstrap.min.js"></script>
+    </div> <!-- /container-fluid -->
 
-      <script src="js/script.js"></script>
-      <script>
-        var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-        (function(d,t){var
-          g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-          g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-          s.parentNode.insertBefore(g,s)}(document,'script'));
-      </script>
-      <!-- scripts to build topo map with KML track and a plot
-      of the elevations.  -->
-      <script src="js/libs/flot/jquery.flot.js"></script>
-      <script src="js/libs/flot/jquery.flot.crosshair.js"></script>
-      <script src="js/flotResize.js"></script>
-      <script src="js/libs/OL/OpenLayers.js"></script>
-      <script src="js/tfmaps.js"></script>
-      <script src="js/trackLayer.js"></script>
-      <script src="js/elevChart2.js"></script>
-      <script src="js/setMark.js"></script>
+    <!-- javascript at EOD so the pages load faster -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
+    </script>
+    <script>window.jQuery ||
+      document.write('<script src="js/libs/jquery-1.7.2.min.js"><\/script>')
+    </script>
+
+    <script src="js/libs/bootstrap/bootstrap.min.js"></script>
+
+    <script>
+    urlPosition = false;
+jQuery(document).ready(function() {
+    $("#statTable").hide();
+    //heroMap = initMapLayers("heroMap", "none");
+    myMap = initMapLayers("map", "none");
+    hikeTrack = "PaloAltoBaylands_20120520"
+    ttype = 'gx:track';
+
+    myTour = addTrackLayer(myMap, hikeTrack + ".kml", ttype);
+    $('#myTracksDesc').load(hikeTrack + '.txt',
+        function(response, loadStatus, xhr) { 
+           if (loadStatus == "error") {
+              $('#myTracksDesc').append('Not available');
+              }
+           $('.desc_progress').hide();
+                });
+});
+    </script>
+    <script>
+      var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+      (function(d,t){var
+        g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)}(document,'script'));
+    </script>
+    <!-- scripts to build topo map with KML track and a plot
+    of the elevations.  -->
+    <script src="js/libs/flot/jquery.flot.js"></script>
+    <script src="js/libs/flot/jquery.flot.crosshair.js"></script>
+    <script src="js/flotResize.js"></script>
+    <script src="js/libs/OL/OpenLayers.js"></script>
+    <script src="js/tfmaps.js"></script>
+    <script src="js/trackLayer.js"></script>
+    <script src="js/elevChart2.js"></script>
+    <script src="js/setMark.js"></script>
 
 
 </body>

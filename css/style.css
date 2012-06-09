@@ -5,6 +5,10 @@
   height: 500px;
 }
 
+.hero-map {
+  height: 300px;
+}
+
 .mediumplot {
   height: 200px;
 }
@@ -13,8 +17,19 @@
   padding: 10px 0;
 }
 
+.row-fluid {
+  padding: 10px 0;
+}
+
 .myTracksDesc {
   margin-left: 20px;
+}
+
+.hero-unit .myTracksDesc p {
+  margin: 0 0 9px;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 13px;
+  line-height: 18px;
 }
 
 .statTable {
@@ -36,6 +51,10 @@
 .stat_m {
   padding: 0 5px;
   text-align: left
+}
+
+.hero-unit {
+  padding-top: 30px;
 }
 
 P.license {

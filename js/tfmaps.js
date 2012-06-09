@@ -2,16 +2,21 @@
  * map.js - initialize map layers
  */
 
-function initMapLayers() {
+function initMapLayers(divID,controls) {
+    var myControls = [new OpenLayers.Control.ScaleLine()];
+    if (controls != "none") {
+      myControls = [
+          new OpenLayers.Control.Navigation(),
+          new OpenLayers.Control.PanZoomBar(),
+          new OpenLayers.Control.Permalink(),
+          new OpenLayers.Control.ScaleLine(),
+          new OpenLayers.Control.MousePosition()];
+    }
+    
     // Overall map setup
     var map = new OpenLayers.Map({
-        div: "map",
-        controls:[
-        new OpenLayers.Control.Navigation(),
-        new OpenLayers.Control.PanZoomBar(),
-        new OpenLayers.Control.Permalink(),
-        new OpenLayers.Control.ScaleLine(),
-        new OpenLayers.Control.MousePosition()],
+        div: divID, //"map",
+        controls: myControls,
         projection: new OpenLayers.Projection("EPSG:900913"),
         displayProjection: new OpenLayers.Projection("EPSG:4326"),
         units: "m",
@@ -58,7 +63,9 @@ function initMapLayers() {
 
 
     var mapBounds = new OpenLayers.Bounds( -122.02437, 37.35203, -121.98218, 37.33603);
-    map.addControl(new OpenLayers.Control.LayerSwitcher());
+    if (controls != "none") {
+      map.addControl(new OpenLayers.Control.LayerSwitcher());
+    }
     if (urlPosition == false) {
       map.zoomToExtent(mapBounds.transform(
             map.displayProjection,

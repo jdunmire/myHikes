@@ -4,9 +4,13 @@
 
 var urlPosition = false;
 
+// look for last character of window.location.pathname to be '/' or for
+// the last last element of the path to be 'index.html' and use that to
+// decide how the map will be initialized.
+//
 jQuery(document).ready(function() {
     $("#statTable").hide();
-    myMap = initMapLayers();
+    myMap = initMapLayers("map");
     /*
     home = new setMark(myMap, {zoom: 11, desc: "Home<br/>",
         iconMapURL: "",
