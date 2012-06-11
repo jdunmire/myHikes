@@ -1,5 +1,8 @@
 TODO:
 ----------------------
+  - hide description for track in hero unit if it is not available and
+    change the size of the map to fill the hero unit
+
   - I'm not happy with the information in the hero box, the description
     is too detailed and there is too much info. Really need just a
     teaser...
@@ -36,7 +39,7 @@ TODO:
      - a thumbnail graphic of the track would be useful - DONE
      - add lat/lon of the start of the track as alt text for the
        thumbnail. Then enable sorting for the thumbnails and use a
-       custom sort to sort using lat/lon.
+       custom sort to sort using lat/lon. - DONE
      - put in 10 rows and then use the table pager
 
   - Need an About page

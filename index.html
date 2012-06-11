@@ -84,6 +84,7 @@
               <tr>
                 <td><a href="hike.html?track=QuickSilver_20120304">
                     <img src="QuickSilver_20120304.png"/></a>
+                    <div style="display: none">-128.3,37.5</div>
                 </td>
                 <td> <a href="hike.html?track=QuickSilver_20120304">QuickSilver</a>
                 </td>
@@ -96,6 +97,7 @@
                 <td>
                   <a href="hike.html?track=Garmisch&ttype='gx:track'">
                     <img src="Garmisch.png"/></a>
+                    <div style="display: none">-128.3,37.55</div>
                 </td>
                 <td>
                   <a href="hike.html?track=Garmisch&ttype='gx:track'">Garmisch</a>
@@ -111,6 +113,7 @@
                 <td>
                   <a href="hike.html?track=PaloAltoBaylands_20120520&ttype='gx:track'">
                     <img src="PaloAltoBaylands_20120520.png"/></a>
+                    <div style="display: none">-128.1,37.5</div>
                 </td>
                 <td>
                   <a href="hike.html?track=PaloAltoBaylands_20120520&ttype='gx:track'">PaloAltoBaylands</a>
@@ -120,6 +123,53 @@
                 </td>
                 <td>
                   6.1 mi
+                </td>
+              </tr>
+              <tr>
+                <td><a href="hike.html?track=QuickSilver_20120304">
+                    <img src="QuickSilver_20120304.png"/></a>
+                    <div style="display: none">-128.3,37.5</div>
+                </td>
+                <td> <a
+                    href="hike.html?track=QuickSilver_20120304">QuickSilver2</a>
+                </td>
+                <td> 2012/03/04 </td>
+                <td>
+                  5.10 miles
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a href="hike.html?track=Garmisch&ttype='gx:track'">
+                    <img src="Garmisch.png"/></a>
+                    <div style="display: none">-128.3,37.55</div>
+                </td>
+                <td>
+                  <a
+                    href="hike.html?track=Garmisch&ttype='gx:track'">Garmisch2</a>
+                </td>
+                <td>
+                  2011/12/01
+                </td>
+                <td>
+                  14.8 mi
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a href="hike.html?track=PaloAltoBaylands_20120520&ttype='gx:track'">
+                    <img src="PaloAltoBaylands_20120520.png"/></a>
+                    <div style="display: none">-128.1,37.5</div>
+                </td>
+                <td>
+                  <a
+                    href="hike.html?track=PaloAltoBaylands_20120520&ttype='gx:track'">PaloAltoBaylands2</a>
+                </td>
+                <td>
+                  2012/05/20
+                </td>
+                <td>
+                  6.1110 mi
                 </td>
               </tr>
             </tbody>
@@ -180,7 +230,6 @@
     urlPosition = false;
     jQuery(document).ready(function() {
       $("#statTable").hide();
-      //heroMap = initMapLayers("heroMap", "none");
       myMap = initMapLayers("map", "none");
       hikeTrack = "PaloAltoBaylands_20120520"
       ttype = 'gx:track';
@@ -194,9 +243,25 @@
         $('.desc_progress').hide();
       });
 
+      $.tablesorter.addParser({
+        id: "coords",
+        is: function(s) {
+          return false;
+        },
+        format: function(s) {
+          var a = s.split(",");
+          var lat = $.tablesorter.formatFloat(a[0]);
+          var lon = $.tablesorter.formatFloat(a[1]);
+          var i = $.tablesorter.formatFloat(s);
+          return (lat * lon);
+        },
+        type: "numeric"
+      });
+
       $("table").tablesorter({
         headers: {
-          0: { sorter: false }
+          0: {sorter: 'coords'},
+          3: { sorter: 'digit' },
         }
       });
     });
