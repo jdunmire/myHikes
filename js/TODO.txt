@@ -1,11 +1,5 @@
 TODO:
 ----------------------
-  - I don't like the way I had to change all of the hero-unit p styles
-    to get a small font for the track details. See line 28 of style.css.
-    I need to look into how to nest the styles.
-    UPDATE- I think it is working now, but only through trial and error.
-            Still need to look closer.
-
   - I'm not happy with the information in the hero box, the description
     is too detailed and there is too much info. Really need just a
     teaser...
@@ -38,8 +32,12 @@ TODO:
   - Need an index of tracks
      - drop down?
      - separate page?
-     - one of the panels?
-     - a thumbnail graphic of the track would be useful
+     - one of the panels? - DONE on home page
+     - a thumbnail graphic of the track would be useful - DONE
+     - add lat/lon of the start of the track as alt text for the
+       thumbnail. Then enable sorting for the thumbnails and use a
+       custom sort to sort using lat/lon.
+     - put in 10 rows and then use the table pager
 
   - Need an About page
 

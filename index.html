@@ -3,155 +3,212 @@
 <!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
 <!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-  <title></title>
-  <meta name="Maps of my hikes" content="">
-  <meta name="J.Dunmire" content="">
+    <title></title>
+    <meta name="Maps of my hikes" content="">
+    <meta name="J.Dunmire" content="">
 
-  <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <style>
-    body {
-      padding-top: 60px;
-      padding-bottom: 40px;
-    }
-  </style>
-  <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
-  <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+    </style>
+    <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
+    <link rel="stylesheet" href="css/style.css">
 
-  <script src="js/libs/modernizr-2.5.3-respond-1.1.0.min.js"></script>
-  <link rel="shortcut icon" href="favicon.ico">
-</head>
-<body>
-  <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+    <script src="js/libs/modernizr-2.5.3-respond-1.1.0.min.js"></script>
+    <link rel="shortcut icon" href="favicon.ico">
+  </head>
+  <body>
+    <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
 
-  <div class="navbar navbar-fixed-top">
-    <div class="navbar-inner">
-      <div class="container">
-        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </a>
-        <a class="brand" href="/">MyMaps</a>
-        <div class="nav-collapse">
-          <ul class="nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="/">MyMaps</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li class="active"><a href="#">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="container-fluid">
-    <div class="row-fluid">
-      <div class="span10">
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span10">
 
-        <!-- hero-unit -->
-        <div class="hero-unit">
-          <h2>Most Recent Hike</h2>
-          <div class="row-fluid">
-            <div class="span8">
-              <div class="hero-map" id="map"></div>
-              <p><a href="#">More Details</a>
-            </div>
-            <div class="span4">
-              <div class="myTracksDesc" id="myTracksDesc"></div>
-            </div>
-          </div> <!-- row-fluid -->
-        </div> <!-- hero-unit -->
+          <!-- hero-unit -->
+          <div class="hero-unit hidden-phone">
+            <h2>Most Recent Hike</h2>
+            <div class="row-fluid">
+              <div class="span8">
+                <div class="hero-map" id="map"></div>
+                <p><a href="#">More Details</a>
+              </div>
+              <div class="span4">
+                <div class="myTracksDesc" id="myTracksDesc"></div>
+              </div>
+            </div> <!-- row-fluid -->
+          </div> <!-- hero-unit -->
 
-        <!-- row -->
-        <div class="row-fluid">
-          <div class="span9">
-            <a href="hike.html?track=QuickSilver_20120304">QuickSilver</a>
-            <br>
-            <a href="hike.html?track=Garmisch&ttype='gx:track'">Garmisch</a>
-            <br>
-            <a
-              href="hike.html?track=PaloAltoBaylands_20120520&ttype='gx:track'">PaloAltoBaylands</a>
-          </div> <!-- /span9 -->
-        </div> <!-- /row-fluid -->
+      <!-- row -->
+      <div class="row-fluid">
+        <div class="span12">
+          <table id="listOfHikes" class="table
+            table-condensed table-striped table-center tablesorter">
+            <thead>
+              <tr>
+                <th>Thumbnail</th>
+                <th>Name</th>
+                <th>Time/Date</th>
+                <th>Distance</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><a href="hike.html?track=QuickSilver_20120304">
+                    <img src="QuickSilver_20120304.png"/></a>
+                </td>
+                <td> <a href="hike.html?track=QuickSilver_20120304">QuickSilver</a>
+                </td>
+                <td> 2012/03/04 </td>
+                <td>
+                  5.2 miles
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a href="hike.html?track=Garmisch&ttype='gx:track'">
+                    <img src="Garmisch.png"/></a>
+                </td>
+                <td>
+                  <a href="hike.html?track=Garmisch&ttype='gx:track'">Garmisch</a>
+                </td>
+                <td>
+                  2011/12/01
+                </td>
+                <td>
+                  4.8 mi
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a href="hike.html?track=PaloAltoBaylands_20120520&ttype='gx:track'">
+                    <img src="PaloAltoBaylands_20120520.png"/></a>
+                </td>
+                <td>
+                  <a href="hike.html?track=PaloAltoBaylands_20120520&ttype='gx:track'">PaloAltoBaylands</a>
+                </td>
+                <td>
+                  2012/05/20
+                </td>
+                <td>
+                  6.1 mi
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div> <!-- /span9 -->
+      </div> <!-- /row-fluid -->
 
-        <hr>
+      <hr>
 
-        <footer>
-          <p class="license">
-          <a rel="license"
-            href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img
-            alt="Creative Commons License" style="border-width:0"
-            src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png"
-            /></a><br />This work by <a
-            xmlns:cc="http://creativecommons.org/ns#"
-            href="http://www.dunmire.org" property="cc:attributionName"
-            rel="cc:attributionURL">Jerry Dunmire</a> is licensed under a
-          <a rel="license"
-            href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative
-            Commons Attribution-NonCommercial-ShareAlike 3.0 Unported
-            License
-          </a>.
-          </p>
-        </footer>
+      <footer>
+      <p class="license">
+      <a rel="license"
+        href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img
+        alt="Creative Commons License" style="border-width:0"
+        src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png"
+        /></a><br />This work by <a
+        xmlns:cc="http://creativecommons.org/ns#"
+        href="http://www.dunmire.org" property="cc:attributionName"
+        rel="cc:attributionURL">Jerry Dunmire</a> is licensed under a
+      <a rel="license"
+        href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative
+        Commons Attribution-NonCommercial-ShareAlike 3.0 Unported
+        License
+      </a>.
+      </p>
+      </footer>
 
-      </div> <!-- /span10 -->
-      <div class="span2">
-        Space for ads
-      </div> <!-- /span2 -->
-    </div> <!-- /row-fluid -->
+    </div> <!-- /span10 -->
+    <div class="span2">
+      Space for ads
+    </div> <!-- /span2 -->
+  </div> <!-- /row-fluid -->
 
-    </div> <!-- /container-fluid -->
+</div> <!-- /container-fluid -->
 
-    <!-- javascript at EOD so the pages load faster -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
-    </script>
-    <script>window.jQuery ||
-      document.write('<script src="js/libs/jquery-1.7.2.min.js"><\/script>')
-    </script>
+<!-- javascript at EOD so the pages load faster -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
+</script>
+<script>window.jQuery ||
+  document.write('<script src="js/libs/jquery-1.7.2.min.js"><\/script>')
+  </script>
 
-    <script src="js/libs/bootstrap/bootstrap.min.js"></script>
+  <script src="js/libs/bootstrap/bootstrap.min.js"></script>
+  <script src="js/libs/jquery.tablesorter.min.js"></script>
+  <script src="js/libs/flot/jquery.flot.js"></script>
+  <script src="js/libs/flot/jquery.flot.crosshair.js"></script>
+  <script src="js/libs/OL/OpenLayers.js"></script>
 
-    <script>
+  <!-- scripts to build topo map with KML track and a plot
+  of the elevations.  -->
+  <script src="js/flotResize.js"></script>
+  <script src="js/tfmaps.js"></script>
+  <script src="js/trackLayer.js"></script>
+  <script src="js/elevChart2.js"></script>
+  <script src="js/setMark.js"></script>
+
+  <script>
     urlPosition = false;
-jQuery(document).ready(function() {
-    $("#statTable").hide();
-    //heroMap = initMapLayers("heroMap", "none");
-    myMap = initMapLayers("map", "none");
-    hikeTrack = "PaloAltoBaylands_20120520"
-    ttype = 'gx:track';
+    jQuery(document).ready(function() {
+      $("#statTable").hide();
+      //heroMap = initMapLayers("heroMap", "none");
+      myMap = initMapLayers("map", "none");
+      hikeTrack = "PaloAltoBaylands_20120520"
+      ttype = 'gx:track';
 
-    myTour = addTrackLayer(myMap, hikeTrack + ".kml", ttype);
-    $('#myTracksDesc').load(hikeTrack + '.txt',
-        function(response, loadStatus, xhr) { 
-           if (loadStatus == "error") {
-              $('#myTracksDesc').append('Not available');
-              }
-           $('.desc_progress').hide();
-                });
-});
-    </script>
-    <script>
-      var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-      (function(d,t){var
-        g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-        s.parentNode.insertBefore(g,s)}(document,'script'));
-    </script>
-    <!-- scripts to build topo map with KML track and a plot
-    of the elevations.  -->
-    <script src="js/libs/flot/jquery.flot.js"></script>
-    <script src="js/libs/flot/jquery.flot.crosshair.js"></script>
-    <script src="js/flotResize.js"></script>
-    <script src="js/libs/OL/OpenLayers.js"></script>
-    <script src="js/tfmaps.js"></script>
-    <script src="js/trackLayer.js"></script>
-    <script src="js/elevChart2.js"></script>
-    <script src="js/setMark.js"></script>
+      myTour = addTrackLayer(myMap, hikeTrack + ".kml", ttype);
+      $('#myTracksDesc').load(hikeTrack + '.txt',
+      function(response, loadStatus, xhr) { 
+        if (loadStatus == "error") {
+          $('#myTracksDesc').append('Not available');
+        }
+        $('.desc_progress').hide();
+      });
+
+      $("table").tablesorter({
+        headers: {
+          0: { sorter: false }
+        }
+      });
+    });
+
+  </script>
+  <script>
+    var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+    (function(d,t){var
+      g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+      g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+      s.parentNode.insertBefore(g,s)}(document,'script'));
+  </script>
 
 
 </body>
