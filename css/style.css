@@ -57,6 +57,14 @@
   padding-top: 30px;
 }
 
+.lat {
+  display: none;
+}
+
+.lon {
+  display: none;
+}
+
 P.license {
   text-align: center;
   margin-left: auto;

@@ -71,6 +71,7 @@
       <div class="row-fluid">
         <div class="span12">
           <table id="listOfHikes" class="table
+            table-bordered 
             table-condensed table-striped table-center tablesorter">
             <thead>
               <tr>
@@ -78,6 +79,8 @@
                 <th>Name</th>
                 <th>Time/Date</th>
                 <th>Distance</th>
+                <th class="lat" >Lat</th>
+                <th class="lon" >Lon</th>
               </tr>
             </thead>
             <tbody>
@@ -92,6 +95,8 @@
                 <td>
                   5.2 miles
                 </td>
+                <td class="lat" >-128.3</td>
+                <td class="lon" >37.5</td>
               </tr>
               <tr>
                 <td>
@@ -108,6 +113,8 @@
                 <td>
                   4.8 mi
                 </td>
+                <td class="lat" >-128.3</td>
+                <td class="lon" >37.5</td>
               </tr>
               <tr>
                 <td>
@@ -124,6 +131,8 @@
                 <td>
                   6.1 mi
                 </td>
+                <td class="lat" >-128.3</td>
+                <td class="lon" >37.5</td>
               </tr>
               <tr>
                 <td><a href="hike.html?track=QuickSilver_20120304">
@@ -137,6 +146,8 @@
                 <td>
                   5.10 miles
                 </td>
+                <td class="lat">-128.3</td>
+                <td class="lon">37.5</td>
               </tr>
               <tr>
                 <td>
@@ -154,6 +165,8 @@
                 <td>
                   14.8 mi
                 </td>
+                <td class="lat" >-128.3</td>
+                <td class="lon" >37.5</td>
               </tr>
               <tr>
                 <td>
@@ -171,6 +184,8 @@
                 <td>
                   6.1110 mi
                 </td>
+                <td class="lat" >-128.3</td>
+                <td class="lon" >37.5</td>
               </tr>
             </tbody>
           </table>
@@ -252,13 +267,13 @@
           var a = s.split(",");
           var lat = $.tablesorter.formatFloat(a[0]);
           var lon = $.tablesorter.formatFloat(a[1]);
-          var i = $.tablesorter.formatFloat(s);
           return (lat * lon);
         },
         type: "numeric"
       });
 
       $("table").tablesorter({
+        debug: true,
         headers: {
           0: {sorter: 'coords'},
           3: { sorter: 'digit' },
