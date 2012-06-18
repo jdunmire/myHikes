@@ -1,5 +1,7 @@
 TODO:
 ----------------------
+  - added a type column to the track list
+
   - hide description for track in hero unit if it is not available and
     change the size of the map to fill the hero unit
 
@@ -46,27 +48,12 @@ TODO:
 
   - Links to hike planning/trail sites
 
-  Idea for home page:
-    Big area at top (forgot what facebook framework calls it) would have
-    a small map and the summary from the most recent hike.
-
-    Columns underneath would have a list of other hikes (by date?)
-
-    Get the list of hikes from a php script, perhaps in a JSON format
-
 
   Still need to solve how to organize several hundred hikes, each
   requiring 3 files...
     - by date for sure, need sort and filter option
     - by location would be great
     - some tag that would group the tracks
-
-  Idea for list display:
-    Thumbnail of track, name, distance, date
-    Use twitter bootstrap striped and condensed tables with the jQuery
-    table sorter and table pager plugins.
-    js libraries have been downloaded to myHikes/jquery-tablesorter from
-    http://tablesorter.com/docs/
 
   Trying to install basemap toolkit for matplotlib.
     See http://www.scipy.org/Cookbook/Matplotlib/Maps
@@ -75,8 +62,29 @@ TODO:
     approach to generating the thumbnails I want, I don't feel like
     pursing it on this old Ubuntu version (10.10).
     
+
 DONE
 ----------------------
+  - get latest version of tablesorter
+     https://github.com/Mottie/tablesorter
+
+  - fix sorting problem on table load
+
+  - Idea for list display:
+      Thumbnail of track, name, distance, date
+      Use twitter bootstrap striped and condensed tables with the jQuery
+      table sorter and table pager plugins.
+      js libraries have been downloaded to myHikes/jquery-tablesorter from
+      http://tablesorter.com/docs/
+
+  - Idea for home page:
+      Big area at top (forgot what facebook framework calls it) would have
+      a small map and the summary from the most recent hike.
+
+      Columns underneath would have a list of other hikes (by date?)
+
+      Get the list of hikes from a php script, perhaps in a JSON format
+
   - generalize home location and remove marker for privacy reasons.
 
   - Parse window.location.href to get the track name to load. This makes

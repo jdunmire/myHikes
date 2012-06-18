@@ -55,7 +55,7 @@
 
           <!-- hero-unit -->
           <div class="hero-unit hidden-phone">
-            <h2>Most Recent Hike</h2>
+            <h2>Featured Hike</h2>
             <div class="row-fluid">
               <div class="span8">
                 <div class="hero-map" id="map"></div>
@@ -84,109 +84,6 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td><a href="hike.html?track=QuickSilver_20120304">
-                    <img src="QuickSilver_20120304.png"/></a>
-                    <div style="display: none">-128.3,37.5</div>
-                </td>
-                <td> <a href="hike.html?track=QuickSilver_20120304">QuickSilver</a>
-                </td>
-                <td> 2012/03/04 </td>
-                <td>
-                  5.2 miles
-                </td>
-                <td class="lat" >-128.3</td>
-                <td class="lon" >37.5</td>
-              </tr>
-              <tr>
-                <td>
-                  <a href="hike.html?track=Garmisch&ttype='gx:track'">
-                    <img src="Garmisch.png"/></a>
-                    <div style="display: none">-128.3,37.55</div>
-                </td>
-                <td>
-                  <a href="hike.html?track=Garmisch&ttype='gx:track'">Garmisch</a>
-                </td>
-                <td>
-                  2011/12/01
-                </td>
-                <td>
-                  4.8 mi
-                </td>
-                <td class="lat" >-128.3</td>
-                <td class="lon" >37.5</td>
-              </tr>
-              <tr>
-                <td>
-                  <a href="hike.html?track=PaloAltoBaylands_20120520&ttype='gx:track'">
-                    <img src="PaloAltoBaylands_20120520.png"/></a>
-                    <div style="display: none">-128.1,37.5</div>
-                </td>
-                <td>
-                  <a href="hike.html?track=PaloAltoBaylands_20120520&ttype='gx:track'">PaloAltoBaylands</a>
-                </td>
-                <td>
-                  2012/05/20
-                </td>
-                <td>
-                  6.1 mi
-                </td>
-                <td class="lat" >-128.3</td>
-                <td class="lon" >37.5</td>
-              </tr>
-              <tr>
-                <td><a href="hike.html?track=QuickSilver_20120304">
-                    <img src="QuickSilver_20120304.png"/></a>
-                    <div style="display: none">-128.3,37.5</div>
-                </td>
-                <td> <a
-                    href="hike.html?track=QuickSilver_20120304">QuickSilver2</a>
-                </td>
-                <td> 2012/03/04 </td>
-                <td>
-                  5.10 miles
-                </td>
-                <td class="lat">-128.3</td>
-                <td class="lon">37.5</td>
-              </tr>
-              <tr>
-                <td>
-                  <a href="hike.html?track=Garmisch&ttype='gx:track'">
-                    <img src="Garmisch.png"/></a>
-                    <div style="display: none">-128.3,37.55</div>
-                </td>
-                <td>
-                  <a
-                    href="hike.html?track=Garmisch&ttype='gx:track'">Garmisch2</a>
-                </td>
-                <td>
-                  2011/12/01
-                </td>
-                <td>
-                  14.8 mi
-                </td>
-                <td class="lat" >-128.3</td>
-                <td class="lon" >37.5</td>
-              </tr>
-              <tr>
-                <td>
-                  <a href="hike.html?track=PaloAltoBaylands_20120520&ttype='gx:track'">
-                    <img src="PaloAltoBaylands_20120520.png"/></a>
-                    <div style="display: none">-128.1,37.5</div>
-                </td>
-                <td>
-                  <a
-                    href="hike.html?track=PaloAltoBaylands_20120520&ttype='gx:track'">PaloAltoBaylands2</a>
-                </td>
-                <td>
-                  2012/05/20
-                </td>
-                <td>
-                  6.1110 mi
-                </td>
-                <td class="lat" >-128.3</td>
-                <td class="lon" >37.5</td>
-              </tr>
             </tbody>
           </table>
         </div> <!-- /span9 -->
@@ -242,7 +139,7 @@
   <script src="js/setMark.js"></script>
 
   <script>
-    urlPosition = false;
+    urlPosition = false;   // used in tfmap.js
     jQuery(document).ready(function() {
       $("#statTable").hide();
       myMap = initMapLayers("map", "none");
@@ -258,30 +155,29 @@
         $('.desc_progress').hide();
       });
 
-      $.tablesorter.addParser({
-        id: "coords",
-        is: function(s) {
-          return false;
-        },
-        format: function(s) {
-          var a = s.split(",");
-          var lat = $.tablesorter.formatFloat(a[0]);
-          var lon = $.tablesorter.formatFloat(a[1]);
-          return (lat * lon);
-        },
-        type: "numeric"
+      $(function() {
+        $("#listOfHikes").tablesorter({
+          //debug: true,
+          sortList: [[2,1]],  // sort by hike date
+          headers: {
+            0: { sorter: 'float' },
+            1: { sorter: 'text' },
+            3: { sorter: 'digit' },
+          }
+        });
       });
 
-      $("table").tablesorter({
-        debug: true,
-        headers: {
-          0: {sorter: 'coords'},
-          3: { sorter: 'digit' },
-        }
-      });
-    });
+      $.get("data/rowList.html", function(html) { 
+             // append the "ajax'd" data to the table body 
+             $("#listOfHikes tbody").append(html); 
+            // let the plugin know that we made a update 
+            $("#listOfHikes").trigger("update"); 
+        }); 
+
+    }); // End of ready()
 
   </script>
+  <!--
   <script>
     var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
     (function(d,t){var
@@ -289,6 +185,7 @@
       g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
       s.parentNode.insertBefore(g,s)}(document,'script'));
   </script>
+  -->
 
 
 </body>

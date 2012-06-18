@@ -50,17 +50,17 @@ jQuery(document).ready(function() {
       urlPosition = true;
     }
 
-    myTour = addTrackLayer(myMap, track + ".kml", ttype);
+    myTour = addTrackLayer(myMap, "data/" + track + ".kml", ttype);
     myChart = new addElevChart("#elevPlot",
-      track + ".json", myMap); //"distElev.json");
+      "data/" + track + ".json", myMap); //"distElev.json");
     /*
-    $.get(track + '.txt',
+    $.get("data/" + track + '.txt',
           function(data) {
             $('#trailDesc').append(data);
             }
          );
          */
-    $('#myTracksDesc').load(track + '.txt',
+    $('#myTracksDesc').load("data/" + track + '.txt',
         function(response, loadStatus, xhr) { 
            if (loadStatus == "error") {
               $('#myTracksDesc').append('Not available');
