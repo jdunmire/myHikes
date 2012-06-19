@@ -37,12 +37,13 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="/">MyMaps</a>
+          <a class="brand" href="http://rockingdlabs.dunmire.org">RockingDLabs</a>
           <div class="nav-collapse">
             <ul class="nav">
-              <li class="active"><a href="#">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#contact">Contact</a></li>
+              <li class="active"><a href="#">Hikes</a></li>
+              <li><a href="planning.html">Planning</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="contact.html">Contact</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -59,10 +60,10 @@
             <div class="row-fluid">
               <div class="span8">
                 <div class="hero-map" id="map"></div>
-                <p><a href="#">More Details</a>
+                <p><a id="featuredURL" href="#">More Details</a>
               </div>
               <div class="span4">
-                <div class="myTracksDesc" id="myTracksDesc"></div>
+                <div class="featuredDesc" id="featuredDesc"></div>
               </div>
             </div> <!-- row-fluid -->
           </div> <!-- hero-unit -->
@@ -143,17 +144,19 @@
     jQuery(document).ready(function() {
       $("#statTable").hide();
       myMap = initMapLayers("map", "none");
-      hikeTrack = "data/PaloAltoBaylands_20120520"
+      hikeTrack = "PaloAltoBaylands_20120520"
       ttype = 'gx:track';
 
-      myTour = addTrackLayer(myMap, hikeTrack + ".kml", ttype);
-      $('#myTracksDesc').load(hikeTrack + '.txt',
+      myTour = addTrackLayer(myMap, "data/" + hikeTrack + ".kml", ttype);
+      $('#featuredDesc').load("data/" + hikeTrack + '.txt',
       function(response, loadStatus, xhr) { 
         if (loadStatus == "error") {
-          $('#myTracksDesc').append('Not available');
+          $('#featuredDesc').append('Not available');
         }
         $('.desc_progress').hide();
       });
+      $('#featuredURL').prop('href', "hike.html?track=" + hikeTrack +
+      "&ttype='" + ttype +"'");
 
       $(function() {
         $("#listOfHikes").tablesorter({
