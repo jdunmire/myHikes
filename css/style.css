@@ -130,3 +130,12 @@ table.tablesorter .tablesorter-hidden {
 	display: none;
 }
 
+.numPages {
+  width: 50px;
+  background-color: #DDD;
+  font-size: 11px;
+  margin-bottom: 0px;
+  height: 24px;
+  line-height: 24px;
+  text-align: center;
+}

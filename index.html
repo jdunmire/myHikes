@@ -21,6 +21,7 @@
       }
     </style>
     <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
+    <link rel="stylesheet" href="css/jquery.tablesorter.pager.css">
     <link rel="stylesheet" href="css/style.css">
 
     <script src="js/libs/modernizr-2.5.3-respond-1.1.0.min.js"></script>
@@ -76,6 +77,20 @@
             table-condensed table-striped table-center tablesorter">
             <thead>
               <tr>
+                <td class="pager" colspan="6">
+                  <img src="img/first.png" class="first" alt="First" />
+                  <img src="img/prev.png" class="prev" alt="Prev" />
+                  <span class="pagedisplay"></span>
+                  <img src="img/next.png" class="next" alt="Next" />
+                  <img src="img/last.png" class="last" alt="Last" />
+                  <select class="pagesize numPages">
+                    <option value="5">5</option>
+                    <option value="10" selected="selected">10</option>
+                    <option value="25">25</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
                 <th>Thumbnail</th>
                 <th>Name</th>
                 <th>Time/Date</th>
@@ -86,6 +101,22 @@
             </thead>
             <tbody>
             </tbody>
+            <tfoot>
+              <tr>
+                <td class="pager" colspan="6">
+                  <img src="img/first.png" class="first" alt="First" />
+                  <img src="img/prev.png" class="prev" alt="Prev" />
+                  <span class="pagedisplay"></span>
+                  <img src="img/next.png" class="next" alt="Next" />
+                  <img src="img/last.png" class="last" alt="Last" />
+                  <select class="pagesize numPages">
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="25">25</option>
+                  </select>
+                </td>
+              </tr>
+            </tfoot>
           </table>
         </div> <!-- /span9 -->
       </div> <!-- /row-fluid -->
@@ -127,6 +158,7 @@
 
   <script src="js/libs/bootstrap/bootstrap.min.js"></script>
   <script src="js/libs/jquery.tablesorter.min.js"></script>
+  <script src="js/libs/jquery.tablesorter.pager.min.js"></script>
   <script src="js/libs/flot/jquery.flot.js"></script>
   <script src="js/libs/flot/jquery.flot.crosshair.js"></script>
   <script src="js/libs/OL/OpenLayers.js"></script>

@@ -22,7 +22,24 @@ jQuery(document).ready(function() {
     $('#featuredURL').prop('href', "hike.html?track=" + hikeTrack +
         "&ttype='" + ttype +"'");
 
-    //debug: true,
+    var pagerOptions = {
+      container: $(".pager"),
+      // default output: {page}/{totalPages}
+      output: '{startRow} to {endRow} ({totalRows})',
+      updateArrows: true,
+      page: 0,
+      size: 10,
+      fixedHeight: false,
+      removeRows: false,
+      cssNext: '.next',
+      cssPrev: '.prev',
+      cssFirst: '.first',
+      cssLast: '.last',
+      cssPageDisplay: '.pagedisplay',
+      cssPageSize: '.pagesize',
+      cssDisabled: 'disabled'
+    };
+        
     $(function() {
         $("#listOfHikes").tablesorter({
             sortList: [[2,1]],  // sort by hike date
@@ -32,6 +49,7 @@ jQuery(document).ready(function() {
             3: { sorter: 'digit' },
             }
         });
+        $("#listOfHikes").tablesorterPager(pagerOptions)
     });
 
     $.get("data/rowList.html", function(html) { 
