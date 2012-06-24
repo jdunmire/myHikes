@@ -42,6 +42,8 @@ jQuery(document).ready(function() {
         
     $(function() {
         $("#listOfHikes").tablesorter({
+            widthFixed: true,
+            widgets: ["zebra", "resizable", "saveSort"],
             sortList: [[2,1]],  // sort by hike date
             headers: {
             0: { sorter: 'float' },

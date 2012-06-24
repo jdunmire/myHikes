@@ -1,5 +1,30 @@
 TODO:
 ----------------------
+  - fix hero map- it should also link to the map page.
+
+  - add link to Credits, which should be on the About page
+
+  - tablesorter filter and pager don't work together, so which shall I
+    use on the first page? If it is the pager, then perhaps an 'index'
+    page should be added that lists all the tracks and uses the filter
+    widget.
+
+  - About page:
+      - links to the tools, jquery, html5boiler plate, bootstrap, tablesorter,
+        myTracks Openstreetmaps, Thunderforest, mapquest, openlayers
+
+      - Explain why this site exists
+
+  - Contacts page:
+      - links to www.dunmire.org
+      - links to rockgdlabs
+      - an email address myhikes@dunmire.org (maybe it should be
+        mytrails since I have more than hikes in the list)
+
+   - Planning page:
+      - links to trail descriptions
+      - links to pedometer
+
   - added a type column to the track list
 
   - hide description for track in hero unit if it is not available and
