@@ -19,7 +19,7 @@ jQuery(document).ready(function() {
         }
         $('.desc_progress').hide();
         });
-    $('#featuredURL').prop('href', "hike.html?track=" + hikeTrack +
+    $('.featuredURL').prop('href', "hike.html?track=" + hikeTrack +
         "&ttype='" + ttype +"'");
 
     var pagerOptions = {
