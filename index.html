@@ -79,7 +79,15 @@
             table-condensed table-striped table-center tablesorter">
             <thead>
               <tr>
-                <td class="pager" colspan="6">
+                <th data-placeholder='thumbnail'>Thumbnail</th>
+                <th data-placeholder="name">Name</th>
+                <th data-placeholder="date">Time/Date</th>
+                <th data-placeholder="distance">Distance</th>
+                <th class="lat" data-placeholder="lat">Lat</th>
+                <th class="lon" data-placeholder="lon">Lon</th>
+              </tr>
+              <tr>
+                <td class="pager" colspan="4">
                   <img src="img/first.png" class="first" alt="First" />
                   <img src="img/prev.png" class="prev" alt="Prev" />
                   <span class="pagedisplay"></span>
@@ -90,22 +98,17 @@
                     <option value="10" selected="selected">10</option>
                     <option value="25">25</option>
                   </select>
+                  <button class="btn searchBtn" onClick="disablePager();">
+                    <i class="icon-search"></i>
+                  </button>
                 </td>
-              </tr>
-              <tr>
-                <th>Thumbnail</th>
-                <th>Name</th>
-                <th>Time/Date</th>
-                <th>Distance</th>
-                <th class="lat" >Lat</th>
-                <th class="lon" >Lon</th>
               </tr>
             </thead>
             <tbody>
             </tbody>
             <tfoot>
               <tr>
-                <td class="pager" colspan="6">
+                <td class="pager" colspan="4">
                   <img src="img/first.png" class="first" alt="First" />
                   <img src="img/prev.png" class="prev" alt="Prev" />
                   <span class="pagedisplay"></span>
@@ -113,7 +116,7 @@
                   <img src="img/last.png" class="last" alt="Last" />
                   <select class="pagesize numPages">
                     <option value="5">5</option>
-                    <option value="10">10</option>
+                    <option value="10" selected="selected">10</option>
                     <option value="25">25</option>
                   </select>
                 </td>

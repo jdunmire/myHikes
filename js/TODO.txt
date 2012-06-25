@@ -2,13 +2,6 @@ TODO:
 ----------------------
   - add link to Credits, which should be on the About page
 
-  - tablesorter filter and pager don't work together, so which shall I
-    use on the first page? If it is the pager, then perhaps an 'index'
-    page should be added that lists all the tracks and uses the filter
-    widget.
-      - Setup a search/page option, turning on the search option would
-        turn off the page option and vis-a-versa
-
   - About page:
       - links to the tools, jquery, html5boiler plate, bootstrap, tablesorter,
         myTracks Openstreetmaps, Thunderforest, mapquest, openlayers
@@ -59,20 +52,9 @@ TODO:
        Multiply each distance by the ratio of the total distance
        calculated divided by the MyTracks reported distance.
 
-  - Need an index of tracks
-     - drop down?
-     - separate page?
-     - one of the panels? - DONE on home page
-     - a thumbnail graphic of the track would be useful - DONE
-     - add lat/lon of the start of the track as alt text for the
-       thumbnail. Then enable sorting for the thumbnails and use a
-       custom sort to sort using lat/lon. - DONE
-     - put in 10 rows and then use the table pager
-
   - Need an About page
 
   - Links to hike planning/trail sites
-
 
   Still need to solve how to organize several hundred hikes, each
   requiring 3 files...
@@ -90,6 +72,23 @@ TODO:
 
 DONE
 ----------------------
+  - Need an index of tracks
+     - drop down?
+     - separate page?
+     - one of the panels? - DONE on home page
+     - a thumbnail graphic of the track would be useful - DONE
+     - add lat/lon of the start of the track as alt text for the
+       thumbnail. Then enable sorting for the thumbnails and use a
+       custom sort to sort using lat/lon. - DONE
+     - put in 10 rows and then use the table pager
+
+  - tablesorter filter and pager don't work together, so which shall I
+    use on the first page? If it is the pager, then perhaps an 'index'
+    page should be added that lists all the tracks and uses the filter
+    widget.
+      - Setup a search/page option, turning on the search option would
+        turn off the page option and vis-a-versa - DONE
+
   - fix hero map- it should also link to the map page. 
 
   - get latest version of tablesorter

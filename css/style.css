@@ -135,7 +135,29 @@ table.tablesorter .tablesorter-hidden {
   background-color: #DDD;
   font-size: 11px;
   margin-bottom: 0px;
+  margin-right: 10px;
   height: 24px;
   line-height: 24px;
   text-align: center;
+}
+
+.searchBtn {
+  padding: 2px 7px;
+}
+
+
+/* filter widget, added to style.css themes */ 
+table.tablesorter thead tr.filters input { 
+    width: 95%; 
+    -webkit-box-sizing: border-box; 
+    -moz-box-sizing: border-box; 
+    box-sizing: border-box; 
+} 
+table.tablesorter thead tr.filters, table.tablesorter thead tr.filters td { 
+    text-align: center; 
+    background: #1ff; 
+} 
+/* disabled input styling */ 
+table.tablesorter thead tr.tablesorter-filter input.disabled { 
+  display: none;
 }
