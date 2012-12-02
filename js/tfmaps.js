@@ -51,9 +51,9 @@ function initMapLayers(divID,controls) {
     map.addLayer(cycle);
 
     // Mapquest Developer Network
-    var tr1 = "http://oatile1.mqcdn.com/tiles/1.0.0/"
-    var tr2 = "http://oatile2.mqcdn.com/tiles/1.0.0/"
-    var tr3 = "http://oatile3.mqcdn.com/tiles/1.0.0/"
+    var tr1 = "http://otile1.mqcdn.com/tiles/1.0.0/"
+    var tr2 = "http://otile2.mqcdn.com/tiles/1.0.0/"
+    var tr3 = "http://otile3.mqcdn.com/tiles/1.0.0/"
     ocmPath = "sat/${z}/${x}/${y}.png";
     aerial = new OpenLayers.Layer.OSM(
             "MapQuest Open Aerial",
