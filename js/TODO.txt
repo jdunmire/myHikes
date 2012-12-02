@@ -1,12 +1,6 @@
 TODO:
 ----------------------
-  - add link to Credits, which should be on the About page
-
-  - About page:
-      - links to the tools, jquery, html5boiler plate, bootstrap, tablesorter,
-        myTracks Openstreetmaps, Thunderforest, mapquest, openlayers
-
-      - Explain why this site exists
+  - add a last modified date to pages
 
   - Contacts page:
       - links to www.dunmire.org
@@ -143,3 +137,16 @@ DONE
   - progress bar -DONE
 
   - get under revision control - DONE, git
+
+  - add link to Credits, which should be on the About page
+
+  - About page:
+      - links to the tools, jquery, html5boiler plate, bootstrap, tablesorter,
+        myTracks Openstreetmaps, Thunderforest, mapquest, openlayers
+
+      - Explain why this site exists
+         this is a way for me to try out modern web site design tools
+         I wanted to easily view myTracks and google maps wasn't doing
+         it for me.
+
+
