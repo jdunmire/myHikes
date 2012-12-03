@@ -1,16 +1,10 @@
 TODO:
 ----------------------
-  - add a last modified date to pages
-
   - Contacts page:
       - links to www.dunmire.org
       - links to rockgdlabs
       - an email address myhikes@dunmire.org (maybe it should be
         mytrails since I have more than hikes in the list)
-
-   - Planning page:
-      - links to trail descriptions
-      - links to pedometer
 
   - added a type column to the track list
 
@@ -28,8 +22,6 @@ TODO:
     mark on the map for the high and low points. Or maybe put it in as a
     'Location' link.
 
-  - Get the top-bar navigation links working
-
   - allow zoom on elevation chart
 
   - relocate to dunmire.org
@@ -45,10 +37,6 @@ TODO:
      - scale distances to match - DONE by python preprocessing
        Multiply each distance by the ratio of the total distance
        calculated divided by the MyTracks reported distance.
-
-  - Need an About page
-
-  - Links to hike planning/trail sites
 
   Still need to solve how to organize several hundred hikes, each
   requiring 3 files...
@@ -149,4 +137,15 @@ DONE
          I wanted to easily view myTracks and google maps wasn't doing
          it for me.
 
+   - Planning page:
+      - links to trail descriptions
+      - links to pedometer
+
+  - Get the top-bar navigation links working
+
+  - Need an About page
+
+  - Links to hike planning/trail sites
+
+  - add a last modified date to pages
 

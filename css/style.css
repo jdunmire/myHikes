@@ -88,6 +88,15 @@ P.license {
   line-height: 18px;
 }
 
+p.lastmodified {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
 /* extensions for table sorter */
 
 /* styles from tablesorter 'blue' */

@@ -9,6 +9,7 @@ var urlPosition = false;
 // decide how the map will be initialized.
 //
 jQuery(document).ready(function() {
+    addLastModified();
     $("#statTable").hide();
     myMap = initMapLayers("map");
     /*
