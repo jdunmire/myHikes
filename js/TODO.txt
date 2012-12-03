@@ -1,12 +1,14 @@
 TODO:
 ----------------------
+  - add books to about planning page
+
+  - get elevations from mapquest
+
   - Contacts page:
       - links to www.dunmire.org
       - links to rockgdlabs
       - an email address myhikes@dunmire.org (maybe it should be
         mytrails since I have more than hikes in the list)
-
-  - added a type column to the track list
 
   - hide description for track in hero unit if it is not available and
     change the size of the map to fill the hero unit
@@ -148,4 +150,6 @@ DONE
   - Links to hike planning/trail sites
 
   - add a last modified date to pages
+
+  - added a type column to the track list
 

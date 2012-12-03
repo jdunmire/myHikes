@@ -60,13 +60,14 @@ jQuery(document).ready(function() {
         $("#listOfHikes").tablesorter({
             widthFixed: true,
             widgets: ["zebra", "resizable", "saveSort", "filter"],
-            sortList: [[2,1]],  // sort by hike date
+            sortList: [[3,1]],  // sort by hike date
             headers: {
               0: { sorter: 'float', filter: false},
               1: { sorter: 'text' },
-              3: { sorter: 'digit' },
-              4: { filter: false },
+              2: { sorter: 'text' },
+              4: { sorter: 'digit' },
               5: { filter: false },
+              6: { filter: false },
             },
             widgetOptions : {
               filter_cssFilter : 'tablesorter-filter',
