@@ -26,7 +26,7 @@
           <script src="js/libs/modernizr-2.5.3-respond-1.1.0.min.js"></script>
           <link rel="shortcut icon" href="favicon.ico">
         </head>
-        <body>
+        <body data-spy="scroll" data-target=".myTarget">
           <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
 
           <div class="navbar navbar-fixed-top navbar-inverse">
@@ -51,9 +51,22 @@
 
           <div class="container-fluid">
             <div class="row-fluid">
+              <div class="span2 myTarget">
+                <ul class="nav nav-list nav-stacked sidenav affix">
+                  <li class="active"><a href="#webPrimary">
+                    <i class="icon-chevron-right"></i>Web Sites (primary)</a></li>
+                  <li><a href="#books">
+                    <i class="icon-chevron-right"></i>
+                    Books</a></li>
+                  <li><a href="#webAlt">
+                    <i class="icon-chevron-right"></i>
+                    Web Sites (less used)</a></li>
+                </ul>
+              </div> <!-- span2 -->
               <div class="span8">
                 <p>
                 Here are some resources I rely on when I am planning a hike:
+                <section id="webPrimary">
                 <h2>Web sites (primary)</h2>
                 <dl>
                   <dt><a href="http://www.bahiker.com/">San Francisco
@@ -92,6 +105,8 @@
                   </dd>
                 </dl>
 
+                </section>
+                <section id="books">
                 <h2>Books</h2>
                 <dl>
                   <dt>
@@ -110,6 +125,8 @@
                   <a href="http://www.amazon.com/dp/0899972845">
                     South Bay Trails</a>, Jean Rusmore and Fances Spangle
                   </dt>
+                </section>
+                <section id="webAlt">
                 <h2>Web sites (less used)</h2>
                 <p>
                 These links are sites that I have used in the past, use
@@ -139,6 +156,7 @@
                   my Google search patterns.
                   </dd>
                 </dl>
+                </section>
 
                 <hr>
 
