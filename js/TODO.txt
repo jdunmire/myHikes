@@ -1,8 +1,12 @@
 TODO:
 ----------------------
-  - add books to about planning page
+  - add nav side bar to planning
 
-  - get elevations from mapquest
+  - flesh out the book descriptions.
+
+  - get scripts under git control
+  
+  - add install script and/or makefile
 
   - Contacts page:
       - links to www.dunmire.org
@@ -153,3 +157,11 @@ DONE
 
   - added a type column to the track list
 
+  - get elevations from mapquest
+    Done, but mapquest doesn't have quite the resolution of USGS. Speed
+    is an improvement, but not blindingly fast. So for now the default
+    in myTracksKML2elevChart.py is to use USGS and the roll-over to
+    MapQuest (and then to earthtools.com) when USGS elevations are not
+    available.
+
+  - add books to about planning page
