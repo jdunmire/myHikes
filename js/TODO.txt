@@ -2,11 +2,8 @@ TODO:
 ----------------------
   - Add responsive settings to css/style.css - use the docs.css file
     from the bootstrap docs website as an example.
-
-  - PROBLEM: at least on chrome, when you click on the "Books" nav item,
-    the section title gets pushed under the topnav bar.
-
-  - flesh out the book descriptions.
+    I have downloaded a copy as bootstrap_docs.css in the
+    working/myHikes directory.
 
   - get scripts under git control
   
@@ -170,3 +167,17 @@ DONE
 
   - add books to about planning page
   - add nav side bar to planning
+  - add links to mapping sites, toposm, etc.
+  
+  - PROBLEM: at least on chrome, when you click on the "Books" nav item,
+    the section title gets pushed under the topnav bar.
+    The fix is more of a work-around. A top margin is added to the
+    section element, but the side effect is that there is 'extra' white
+    space between the sections.  I tried some alternatives but they lead
+    to other side effects that I didn't want. So I decided to stop
+    wasting time and just accept the extra white space.
+
+  - flesh out the book descriptions.
+    I decided not to do this- it would have turned into a book review
+    and that's not what I want.
+

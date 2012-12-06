@@ -191,9 +191,16 @@ table.tablesorter thead tr.tablesorter-filter input.disabled {
   color: #ddd
 }
 
+/* This padding is needed so that when a nav button moves a section to the top of a
+ * page (sidnav), the top of the section does not get covered by the top navbar.
+ *
+ * The (undesireable, in my opinion) side effect is that there is extra white space
+ * between sections that begin with headings.
+ */
 section {
   padding-top: 30px;
 }
+
 
 /* Sidenav - based bs-docs-sidenav from the Bootstrap Docs web site docs.css file.
  **********************************************/
