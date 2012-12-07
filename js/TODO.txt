@@ -1,10 +1,5 @@
 TODO:
 ----------------------
-  - Add responsive settings to css/style.css - use the docs.css file
-    from the bootstrap docs website as an example.
-    I have downloaded a copy as bootstrap_docs.css in the
-    working/myHikes directory.
-
   - get scripts under git control
   
   - add install script and/or makefile
@@ -180,4 +175,9 @@ DONE
   - flesh out the book descriptions.
     I decided not to do this- it would have turned into a book review
     and that's not what I want.
+
+  - Add responsive settings to css/style.css - use the docs.css file
+    from the bootstrap docs website as an example.
+    I have downloaded a copy as bootstrap_docs.css in the
+    working/myHikes directory.
 
