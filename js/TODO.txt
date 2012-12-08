@@ -4,6 +4,12 @@ TODO:
   
   - add install script and/or makefile
 
+  - add new tracks
+    - clean up the track from the last hike (strip the auto section at
+      the end). Try using gpsprune
+
+  - update the featured hike to be the latest
+
   - Contacts page:
       - links to www.dunmire.org
       - links to rockgdlabs
