@@ -15,7 +15,7 @@ import math
 import urllib, urllib2
 
 from xml.dom import minidom
-from optparse import OptionParser
+import argparse
 
 from geopy import distance
 from geopy import Point
@@ -31,20 +31,25 @@ import progress
 import elevation
 
 #process command line
-parser = OptionParser()
-parser.add_option("-f", "--file", dest="infile",
+parser = argparse.ArgumentParser(description='Derive myHikes data files from a KML file')
+parser.add_argument('kmlFile', 
                   help="input kml file.",
                   metavar="FILE")
+parser.add_argument('--textOnly', action='store_true',
+        default=False,
+        help="Create only the text file.")
 
-(options, args) = parser.parse_args()
+parser.add_argument('--skipElevation', action='store_true',
+        default=False,
+        help="Do not get elevations from the web and skip any elevation processing.")
 
-#require an input file
-if not options.infile:
-    print "ERROR: an input file is required."
-    sys.exit(1)
+parser.add_argument('--skipThumbnail', action='store_true',
+        default=False,
+        help="Do not generate thumbnail image")
 
-    
-(fname, dot, suffix) = options.infile.rpartition(".")
+args = parser.parse_args()
+
+(fname, dot, suffix) = args.kmlFile.rpartition(".")
 if not fname:
     fname = suffix
 
@@ -53,7 +58,7 @@ fname_desc = fname + ".txt"
 
 print "processing %s" % (fname + ".kml")
 
-f = open(options.infile)
+f = open(args.kmlFile)
 kml = f.read()
 f.close()
 xmldoc = minidom.parseString(kml)
@@ -66,17 +71,30 @@ descs = xmldoc.getElementsByTagName('description')
 for desc in descs:
     try:
 
-        if (desc.firstChild.data.find("Total distance:") > 0):
+        if (desc.firstChild.data.find("Total distance:") >= 0):
             summary = desc.firstChild.data.strip()
-            # delete the 'Created by' string.
             
-            # put description in a separate file 
-            descFile = open(fname_desc, "w+b")
+            # Detect html vs plain text format and add html directives
+            # if needed.
+            if (summary.find('<p>') < 0 ):
+                # the description does not have html directives, add them
+                lines = summary.split('\n')
+                firstLine = True
+                for line in lines:
+                    if (line.find('Created by') >= 0) or (len(line) == 0):
+                        continue
+                    if (firstLine == True):
+                        summary = '<p id="fromKMLFile">' + line + '\n'
+                        firstLine = False
+                    else:
+                        summary += '<br>' + line + '\n'
             
             # Eliminate the 'Created by...' string because it
             # doesn't seem to add anything useful to the description.
             summary = re.sub('^Crea.*<p>','<p>', summary)
 
+            # put description in a separate file 
+            descFile = open(fname_desc, "w+b")
             descFile.write(summary)
             descFile.close()
 
@@ -86,12 +104,17 @@ for desc in descs:
             #    <p>Total distance: 9.75 km (6.1 mi)<br>
             #
             for s in summary.split('<'):
-                if (s.find('Total distance:') > 0):
+                if (s.find('Total distance:') >= 0):
                     (discard, values) = s.split(':')
                     (km, unit1, miles, unit2) = values.strip().split(' ')
                     reportedMiles = float(miles.lstrip('('))
     except: 
         continue
+
+if args.textOnly == True:
+    #print "text only exit"
+    sys.exit(0)
+
 
 m2ft = 1.0/(0.0254*12.0)
 firstRecord = True
@@ -142,7 +165,10 @@ if len(arr) > 1:
             y.append(lat)
             gpsElevInM = float(gpsElevInM)
             thisPoint = Point(lat, lon, gpsElevInM)
-            elev = elevation.get(lon, lat)
+            if not args.skipElevation:
+                elev = elevation.get(lon, lat)
+            else:
+                elev = 0
 
             if firstRecord == True:
                 distFromStart = 0
@@ -169,39 +195,43 @@ if len(points) > 1:
     except:
         distScale = 1.0
 
-    jsonDistElev = open(fname_json, "w+b")
-    jsonDistElev.write('{ "label": "Distance and USGS Elev (ft)", "data": [\n')
-    for point in points:
-        (distFromStart, elevInFt, lon, lat, gpsElevInM) = point
-        jsonDistElev.write('[%.4f,%.1f,%.6f,%.6f,%.2f],\n' %
-        (distFromStart * distScale, elevInFt, lon, lat, gpsElevInM))
+    if not args.skipElevation:
+        jsonDistElev = open(fname_json, "w+b")
+        jsonDistElev.write('{ "label": "Distance and USGS Elev (ft)", "data": [\n')
+        for point in points:
+            (distFromStart, elevInFt, lon, lat, gpsElevInM) = point
+            jsonDistElev.write('[%.4f,%.1f,%.6f,%.6f,%.2f],\n' %
+            (distFromStart * distScale, elevInFt, lon, lat, gpsElevInM))
 
-    jsonDistElev.write('[]]}\n')
-    jsonDistElev.close()
+        jsonDistElev.write('[]]}\n')
+        jsonDistElev.close()
 
-    # Now create a thumbnail of the track.
-    # This is crude right now in that it treats the lat/lon as X/Y
-    # without any projection. That is probably ok for any hiking track,
-    # particularly given the small size of the thumbnail.
-    # For now the track background is transparent. In the future I would
-    # like to use the matplotlib basemap tool kit to put a real map
-    # under the track, but basemap requires supporting libraries that
-    # are not available on Ubuntu 10.10, and I don't want to go through
-    # the effort to port the libraries. So the map underlay will have to
-    # wait until I upgrade to Ubuntu 12.04 (or equivalent).
-    # the plot size will 1"x1" so that it is easy to set the size in
-    # pixels by setting DPI when the plot is written.
-    fig = plt.figure(figsize=(1,1))
-    ax = fig.add_subplot(111)
-    ax.set_axis_off()
-    ax.plot(x,y,linewidth=2,color='r')
-    fig.savefig(fname + '.png',dpi=40,transparent=True)
+    if not args.skipThumbnail:
+        # Now create a thumbnail of the track.
+        # This is crude right now in that it treats the lat/lon as X/Y
+        # without any projection. That is probably ok for any hiking track,
+        # particularly given the small size of the thumbnail.
+        # For now the track background is transparent. In the future I would
+        # like to use the matplotlib basemap tool kit to put a real map
+        # under the track, but basemap requires supporting libraries that
+        # are not available on Ubuntu 10.10, and I don't want to go through
+        # the effort to port the libraries. So the map underlay will have to
+        # wait until I upgrade to Ubuntu 12.04 (or equivalent).
+        # the plot size will 1"x1" so that it is easy to set the size in
+        # pixels by setting DPI when the plot is written.
+        fig = plt.figure(figsize=(1,1))
+        ax = fig.add_subplot(111)
+        ax.set_axis_off()
+        ax.plot(x,y,linewidth=2,color='r')
+        fig.savefig(fname + '.png',dpi=40,transparent=True)
 
 
+    #
+    # Generate a record describing the hike
+    #
     startPlacemark = False
     lat = 0
     lon = 0
-    dt = 0
     placeNodes = xmldoc.getElementsByTagName('Placemark')
     if len(placeNodes) > 0:
         for placeNode in placeNodes:
@@ -224,12 +254,13 @@ if len(points) > 1:
                             lon = float(lon)
                             # TODO: find and use the center of the track, not the
                             # start.
-                elif child.localName == 'description':
-                    try:
-                        dt = datetime.strptime(child.firstChild.data.strip(),
-                            "%m/%d/%Y %I:%M %p")
-                    except:
-                        dt = ""
+                
+               # elif child.localName == 'description':
+               #     try:
+               #         dt = datetime.strptime(child.firstChild.data.strip(),
+               #             "%m/%d/%Y %I:%M %p")
+               #     except:
+               #         dt = ""
                 
             if startPlacemark == True:
                 #print dt
@@ -264,6 +295,8 @@ if len(points) > 1:
                match = distRE.search(desc)
                if match is not None:
                    dist = "%s mi" % match.group(1)
+
+               # search for date in old style description.
                dateRE = re.compile(r"Recorded: (.*?)<br>")
                match = dateRE.search(desc)
                if match is not None:
@@ -274,6 +307,29 @@ if len(points) > 1:
                    except:
                        dt = datetime.strptime(match.group(1),
                             "%m/%d/%y %I:%M %p")
+               else:
+                   # new style description has one key:value pair per line
+                   # and there is no space between the time and the AM/PM
+                   dateRE = re.compile(r"Recorded: (.*?)$")
+                   match = dateRE.search(desc)
+                   if match is not None:
+                       #print "DATE STRING2 %s " % match.group(1)
+                       try:
+                           dt = datetime.strptime(match.group(1),
+                                "%m/%d/%Y %I:%M%p")
+                       except:
+                           dt = datetime.strptime(match.group(1),
+                                "%m/%d/%y %I:%M%p")
+                
+               regExp = re.compile(r"Activity type: (.*?)<br>")
+               match = regExp.search(desc)
+               if match is not None:
+                   activity = "%s" % match.group(1)
+               else:
+                   regExp = re.compile(r"Activity type: (.*?)\n")
+                   match = regExp.search(desc)
+                   if match is not None:
+                       activity = "%s" % match.group(1)
 
 
     latMid = ((max(y) + min(y))/2.0)
@@ -291,6 +347,7 @@ if len(points) > 1:
     '<a href="hike.html?track=%s&ttype=\'gx:track\'">' + \
     '%s</a>' + \
     '</td>' + \
+    '<td>%s</td>' + \
     '<td>' + \
     '%s' + \
     '</td>' + \
@@ -301,8 +358,11 @@ if len(points) > 1:
     '<td class="lon" >%.6f</td>' + \
     '</tr>\n'
 
+    # Add the descriptiive record to the list of hikes
     rowList = open("rowList.html", 'a+')
     rowList.write( rowFormat % ( fname, fname + ".png", latLonHash, fname,
-            title.strip(), dt, dist, latMid, lonMid))
+            title.strip(), activity, dt, dist, latMid, lonMid))
     rowList.close()
 
+
+print "finished %s" % (fname + ".kml")
