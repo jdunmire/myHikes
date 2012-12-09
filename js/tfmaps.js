@@ -34,10 +34,12 @@ function initMapLayers(divID,controls) {
     var tr2 = "http://b.tile3.opencyclemap.org/"
     var tr3 = "http://c.tile3.opencyclemap.org/"
     ocmPath = "landscape/${z}/${x}/${y}.png";
+    // Number of zoom levels reduced from 18 to 17 because
+    // layer 18 is missing contours. Problem was reported
     landscape = new OpenLayers.Layer.OSM(
             "TF Landscape",
             [tr1 + ocmPath, tr2 + ocmPath, tr3 + ocmPath],
-            {numZoomLevels: 18});
+            {numZoomLevels: 17});
     map.addLayer(landscape);
 
     var tr1 = "http://a.tile.opencyclemap.org/"
