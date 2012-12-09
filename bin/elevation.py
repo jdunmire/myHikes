@@ -53,7 +53,17 @@ def get(lon, lat, pbar=progress.wheel()):
         # make the request: note that by ommitting the url arguments
         # we force a GET request, instead of a POST
         req = urllib2.Request(url=get_url)
-        response = urllib2.urlopen(req)
+        
+        # This is a crude way to implement re-try,
+        # it should be re-written as a loop.
+        try:
+            response = urllib2.urlopen(req)
+        except:
+            try:
+                response = urllib2.urlopen(req)
+            except:
+                response = urllib2.urlopen(req)
+
         the_page = response.read()
 
         dom = minidom.parseString(the_page)
@@ -113,7 +123,7 @@ def get(lon, lat, pbar=progress.wheel()):
         elevStanza = dom.getElementsByTagName('meters')
         elev = float(elevStanza[0].firstChild.data.strip())
 
-    sys.stdout.write('\b%s' % pbar()),
-    sys.stdout.flush()
+    #sys.stdout.write('\b%s' % pbar()),
+    #sys.stdout.flush()
     #print elev
     return elev
