@@ -42,7 +42,7 @@ jQuery(document).ready(function() {
     addLastModified();
     $("#statTable").hide();
     myMap = initMapLayers("map", "none");
-    hikeTrack = "PaloAltoBaylands_20120520"
+    hikeTrack = "Featured"
     ttype = 'gx:track';
 
     myTour = addTrackLayer(myMap, "data/" + hikeTrack + ".kml", ttype);

@@ -1,14 +1,17 @@
 TODO:
 ----------------------
-  - get scripts under git control
-  
   - add install script and/or makefile
 
-  - add new tracks
-    - clean up the track from the last hike (strip the auto section at
+  - clean up the track from the last hike (strip the auto section at
       the end). Try using gpsprune
 
-  - update the featured hike to be the latest
+  - merge rowList.html files
+
+  - Add a context map so that it is easier to see where the track is
+    located.
+
+  - Add multiple lists of hikes: All, walking, hiking, skiing, (other)
+    Drop down from Hikes menu
 
   - Contacts page:
       - links to www.dunmire.org
@@ -186,4 +189,12 @@ DONE
     from the bootstrap docs website as an example.
     I have downloaded a copy as bootstrap_docs.css in the
     working/myHikes directory.
+
+  - get scripts under git control
+  
+  - add new tracks
+
+  - update the featured hike to be the latest
+     using symlinks to create Featured.kml, Featured.json, Featured.txt
+     and Featured.png. See bin/mkFeatured.sh
 
