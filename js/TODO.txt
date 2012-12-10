@@ -1,6 +1,6 @@
 TODO:
 ----------------------
-  - remove 'space for ads' or add them
+  - add ads
 
   - Add a context map so that it is easier to see where the track is
     located.
@@ -199,4 +199,6 @@ DONE
   - merge rowList.html files
 
   - add install script and/or makefile
+
+  - remove 'space for ads' or add them
 
