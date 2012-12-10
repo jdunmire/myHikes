@@ -1,11 +1,6 @@
 TODO:
 ----------------------
-  - add install script and/or makefile
-
-  - clean up the track from the last hike (strip the auto section at
-      the end). Try using gpsprune
-
-  - merge rowList.html files
+  - remove 'space for ads' or add them
 
   - Add a context map so that it is easier to see where the track is
     located.
@@ -197,4 +192,11 @@ DONE
   - update the featured hike to be the latest
      using symlinks to create Featured.kml, Featured.json, Featured.txt
      and Featured.png. See bin/mkFeatured.sh
+
+  - clean up the track from the last hike (strip the auto section at
+      the end). Try using gpsprune
+
+  - merge rowList.html files
+
+  - add install script and/or makefile
 
