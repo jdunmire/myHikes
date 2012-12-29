@@ -6,6 +6,10 @@
 #
 # From: http://www.linuxjournal.com/content/tech-tip-really-simple-http-server-python
 #
+# Alternate that serves on all interfaces is a one liner:
+#
+#   python -m SimpleHTTPServer
+#
 import sys
 import BaseHTTPServer
 from SimpleHTTPServer import SimpleHTTPRequestHandler
