@@ -41,20 +41,25 @@ function enablePager() {
 jQuery(document).ready(function() {
     addLastModified();
     $("#statTable").hide();
-    myMap = initMapLayers("map", "none");
-    hikeTrack = "Featured"
-    ttype = 'gx:track';
+    // If Hero Unit is not defined then map can not be initialized.
 
-    myTour = addTrackLayer(myMap, "data/" + hikeTrack + ".kml", ttype);
-    $('#featuredDesc').load("data/" + hikeTrack + '.txt',
-        function(response, loadStatus, xhr) { 
-        if (loadStatus == "error") {
-        $('#featuredDesc').append('Not available');
-        }
-        $('.desc_progress').hide();
-        });
-    $('.featuredURL').prop('href', "hike.html?track=" + hikeTrack +
-        "&ttype='" + ttype +"'");
+    if ($("#map").is(":visible"))
+    {
+      myMap = initMapLayers("map", "none");
+      hikeTrack = "Featured"
+      ttype = 'gx:track';
+
+      myTour = addTrackLayer(myMap, "data/" + hikeTrack + ".kml", ttype);
+      $('#featuredDesc').load("data/" + hikeTrack + '.txt',
+          function(response, loadStatus, xhr) { 
+          if (loadStatus == "error") {
+          $('#featuredDesc').append('Not available');
+          }
+          $('.desc_progress').hide();
+          });
+      $('.featuredURL').prop('href', "hike.html?track=" + hikeTrack +
+          "&ttype='" + ttype +"'");
+    }
 
     $(function() {
         $("#listOfHikes").tablesorter({
