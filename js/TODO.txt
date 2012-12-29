@@ -1,10 +1,11 @@
 TODO:
 ----------------------
-  - For narrow (phone) screens, hide the description
-  - For medium (tablet) hide description in hero unit
   - Add links on www.dunmire.org
   - Add an announcement and links on RockingDLabs
   - add ads
+
+  - For narrow (phone) screens, hide the description
+  - For medium (tablet) hide description in hero unit
 
   - Add a context map so that it is easier to see where the track is
     located.
@@ -215,3 +216,4 @@ DONE
   - Add Google+ community link on RockingDLabs
   - Change the 'RockingDLabs' link at the top.
   - Add links and a description to the Google+ community
+  - Add contact page
