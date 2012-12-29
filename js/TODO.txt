@@ -1,5 +1,9 @@
 TODO:
 ----------------------
+  - For narrow (phone) screens, hide the description
+  - For medium (tablet) hide description in hero unit
+  - Add links on www.dunmire.org
+  - Add an announcement and links on RockingDLabs
   - add ads
 
   - Add a context map so that it is easier to see where the track is
@@ -202,3 +206,12 @@ DONE
 
   - remove 'space for ads' or add them
 
+  - Choose a better 'Featured' map
+
+  - fixed hero/map problem that kept the table from being viewed on a
+    cell phone. Side effect is that if you start with a narrow window
+    and then expand, the hero unit appears but map does not.
+
+  - Add Google+ community link on RockingDLabs
+  - Change the 'RockingDLabs' link at the top.
+  - Add links and a description to the Google+ community
