@@ -1,14 +1,23 @@
 TODO:
 ----------------------
-  - Add links on www.dunmire.org
-  - Add an announcement and links on RockingDLabs
-  - add ads
+  - Add 'snippet' info so that Google+ links look nice:
+     https://developers.google.com/+/plugins/snippet/
+     http://schema.org/Map
+     http://schema.org/Article
+     http://schema.org/Blog
 
-  - For narrow (phone) screens, hide the description
-  - For medium (tablet) hide description in hero unit
+  - Add an announcement and links on RockingDLabs
 
   - Add a context map so that it is easier to see where the track is
     located.
+
+  - Add an over-view map that shows a marker (with a link?) for each
+    track.
+
+  - Add notes to each track and/or rename so they are easier to
+    identify.
+
+  - Add a next/previous to make browsing possible.
 
   - Add multiple lists of hikes: All, walking, hiking, skiing, (other)
     Drop down from Hikes menu
@@ -62,6 +71,16 @@ TODO:
     approach to generating the thumbnails I want, I don't feel like
     pursing it on this old Ubuntu version (10.10).
     
+  - add ads
+      Moved near the bottom of the list because it would probably better
+      to add adds to RockingD Labs first.
+
+  - For narrow (phone) screens, hide the description
+  - For medium (tablet) hide description in hero unit
+      Initial attempt at hiding columns based on device did not work and
+      it may not be a good idea anyway. So I've moved these items to the
+      bottom of the todo list for now.
+
 
 DONE
 ----------------------
@@ -217,3 +236,4 @@ DONE
   - Change the 'RockingDLabs' link at the top.
   - Add links and a description to the Google+ community
   - Add contact page
+  - Add links on www.dunmire.org
