@@ -1,5 +1,10 @@
 TODO:
 ----------------------
+  - Fix display of 'paused' tracks. Right now I am hand editting the
+    KML files to comment-out the pause, but it would be better the
+    pauses where handled, perhaps as color changes, by the javascript
+    that displays the track.
+
   - Add 'snippet' info so that Google+ links look nice:
      https://developers.google.com/+/plugins/snippet/
      http://schema.org/Map
