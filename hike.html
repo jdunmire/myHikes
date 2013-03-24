@@ -51,32 +51,8 @@
   </div>
 
   <div class="container-fluid">
-    <!-- map row -->
     <div class="row-fluid">
       <div class="span9">
-        <div class="mediummap" id="map">
-        </div>
-      </div>
-      <div class="span3" id="trailDesc">
-        <h3>Trail Description</h3>
-        <div class="progress progress-striped active desc_progress">
-          <div class="bar" style="width: 50%;"></div>
-        </div>
-        <div class="myTracksDesc" id="myTracksDesc">
-        </div>
-      </div>
-    </div> <!-- map row -->
-
-    <!-- Elev Plot row -->
-    <div class="row-fluid">
-      <div class="span9">
-        <div class="mediumplot" id="elevPlot"></div>
-      </div>
-      <div class="span3" id="locationLinks">
-        <h3>Trail Summary</h3>
-        <div class="progress progress-striped active elev_progress">
-          <div class="bar" style="width: 50%;"></div>
-        </div>
         <table class="statTable" id="statTable" style="display: none;">
           <tr>
             <td class="statLabel">Distance</td>
@@ -84,22 +60,19 @@
             <td class="stat" id="distTotal"></td>
             <td class="enUnits">mi</td>
             <td class="stat_m" id="distTotal_m"></td>
-          </tr>
-          <tr>
+          
             <td class="statLabel">Elev Max</td>
             <td class="statSep">:</td>
             <td class="stat" id="elevMax"></td>
             <td class="enUnits">ft</td>
             <td class="stat_m" id="elevMax_m"></td>
-          </tr>
-          <tr>
+
             <td class="statLabel">Elev Min</td>
             <td class="statSep">:</td>
             <td class="stat" id="elevMin"></td>
             <td class="enUnits">ft</td>
             <td class="stat_m" id="elevMin_m"></td>
-          </tr>
-          <tr>
+
             <td class="statLabel">Elev Gain</td>
             <td class="statSep">:</td>
             <td class="stat" id="elevGain"></td>
@@ -107,9 +80,21 @@
             <td class="stat_m" id="elevGain_m"></td>
           </tr>
         </table>
+        <div class="mediumplot" id="elevPlot"></div>
+        <div class="mediummap" id="map"> </div>
       </div>
-    </div> <!-- Elev Plot row -->
-
+      <div class="span3" id="trailDesc">
+        <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+        <g:plusone></g:plusone>
+        <div class="fb-like" data-send="false" data-layout="button_count"  data-show-faces="false"></div>
+        <h3>Trail Description</h3>
+        <div class="progress progress-striped active desc_progress">
+          <div class="bar" style="width: 50%;"></div>
+        </div>
+        <div class="myTracksDesc" id="myTracksDesc">
+        </div>
+      </div>
+    </div>
     <hr>
 
     <footer>
@@ -143,36 +128,43 @@
     </p>
     <p class="lastmodified" id="lastModified">
     </footer>
+  </div> <!-- /container -->
 
-    </div> <!-- /container -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
+  </script>
+  <script>window.jQuery ||
+    document.write('<script src="js/libs/jquery-1.7.2.min.js"><\/script>')
+  </script>
 
-      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
-      </script>
-      <script>window.jQuery ||
-        document.write('<script src="js/libs/jquery-1.7.2.min.js"><\/script>')
-      </script>
+  <script src="js/libs/bootstrap/bootstrap.min.js"></script>
 
-      <script src="js/libs/bootstrap/bootstrap.min.js"></script>
-
-      <script src="js/lastModified.js"></script>
-      <script src="js/hike.js"></script>
-      <script>
-        var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-        (function(d,t){var
-          g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-          g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-          s.parentNode.insertBefore(g,s)}(document,'script'));
-      </script>
-      <!-- scripts to build topo map with KML track and a plot
-      of the elevations.  -->
-      <script src="js/libs/flot/jquery.flot.js"></script>
-      <script src="js/libs/flot/jquery.flot.crosshair.js"></script>
-      <script src="js/flotResize.js"></script>
-      <script src="js/libs/OL/OpenLayers.js"></script>
-      <script src="js/tfmaps.js"></script>
-      <script src="js/trackLayer.js"></script>
-      <script src="js/elevChart2.js"></script>
-      <script src="js/setMark.js"></script>
+  <script src="js/lastModified.js"></script>
+  <script src="js/hike.js"></script>
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+  <script>
+    var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+    (function(d,t){var
+      g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+      g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+      s.parentNode.insertBefore(g,s)}(document,'script'));
+  </script>
+  <!-- scripts to build topo map with KML track and a plot
+  of the elevations.  -->
+  <script src="js/libs/flot/jquery.flot.js"></script>
+  <script src="js/libs/flot/jquery.flot.crosshair.js"></script>
+  <script src="js/flotResize.js"></script>
+  <script src="js/libs/OL/OpenLayers.js"></script>
+  <script src="js/tfmaps.js"></script>
+  <script src="js/trackLayer.js"></script>
+  <script src="js/elevChart2.js"></script>
+  <script src="js/setMark.js"></script>
 
 
 </body>

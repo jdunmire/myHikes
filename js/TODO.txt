@@ -1,5 +1,16 @@
 TODO:
 ----------------------
+  - Add 'share' division
+     - g+
+     - facebook
+      - I swapped the map and the elevation plot because that was the easy
+        way to the the FB like dialog to work. With the map on top, the FB
+        dialog would be partially hidden behind the map.
+      - This wasn't a problem on the index.html because the map is far
+        enough away from the FB like buttion. Could still be a problem
+        when the display width gets smaller...
+      - still need to workout the URL that get's posted and an image.
+
   - Fix display of 'paused' tracks. Right now I am hand editting the
     KML files to comment-out the pause, but it would be better the
     pauses where handled, perhaps as color changes, by the javascript
