@@ -11,6 +11,42 @@ TODO:
         when the display width gets smaller...
       - still need to workout the URL that get's posted and an image.
 
+      - info on image sizes when posting to social media sites.
+      http://www.lunametrics.com/blog/2012/11/12/final-social-media-sizing-cheat-sheet/
+      - http:/ogp.me for meta tags to set page informating
+      - https://developers.google.com/+/web/snippet/ - for page info
+        used by google+
+      - https://developers.facebook.com/docs/reference/plugins/like/
+          for page info used by facebook
+      - www.google.com/webmasters/tools/richsnippets to view what the
+        data looks like.
+
+      - https://developers.facebook.com/tools/debug to see the data FB
+        will use.
+
+      - Data I need/want:
+         - og:title - dynamic
+         - og:type - static, map, route, hike, track??
+         - og:image - properly pulled on index.html
+             - is it too large on the hike.html? Or is there a way to
+               specifiy it as a tag?
+         - og:url - default might work
+         - og:description - dynamic
+         - og:site_name - this could be static, RockingDLabs:myHikes
+
+      The problem is that the data can not be supplied by javascript,
+      the web sites (FB/Google+) just scan the page header. The way that
+      I got an image for the index.html page is that I put a static .jpg
+      on the site and set the og:image to point to it. I also hard-coded
+      the og:description in the index.html file.
+
+      So the only 'real' solution is to fill in the tags on the server
+      side with php or python.
+
+      - this is a clear introduction to HTML5 microdata with some
+        examples of how it can be used with 'legacy' HTML:
+        http://diveintohtml5.info/extensibility.html
+
   - Fix display of 'paused' tracks. Right now I am hand editting the
     KML files to comment-out the pause, but it would be better the
     pauses where handled, perhaps as color changes, by the javascript
